@@ -1,0 +1,545 @@
+learning C++
+
+Running the G++ complier
+
+	make a file 
+	type g++ with file 
+	type ./a.out
+	
+	What the -g option will do is allow the executable file to be "debugged" using the GDB debugger.
+	What the -Wall flag will do is show ALL the warning messages you may get that describe possible errors in your source code
+	 The -o flag will allow you to rename the executable file from something other than a.out.
+
+can make
+	windows app
+	client - server app
+	device drivers
+	embedded firmware
+
+C++ I/O Library Header Files
+        <iostream> for cout,cin , cerr = stdout, stdin, stderr
+	<iomainp> It is used to declare services useful for performing formatted I/O, such as setprecision and setw.
+	<fstream> It is used to declare services for user-controlled file processing.
+		
+C++ cout
+	use
+	cout << [variable,string] << [variable,string] << [endl]
+
+C++ cin
+	cin >> [variable]
+
+C++ endl -used as newline or "\n" newline can also be used
+
+C++ variables
+	[type] [variable_name}
+	
+	how to define variable names
+	A variable can have alphabets, digits and underscore
+	A variable name can start with alphabet and underscore only. It can't start with digit.
+	No white space is allowed within variable name.
+	A variable name must not be any reserved word or keyword e.g. char, float etc.
+
+C++ Data Types
+	Basic - int, char, float, double, etc
+	Derived - array, pointer, etc
+	Enumeration - 	enum
+	User Defined - structure
+	
+	The memory size of basic data types may change according to 32 or 64 bit operating system.
+	The basic data types are integer-based and floating-point based. C++ language supports both signed and unsigned literals.
+	unsigned starts at zero	
+
+	char			1 byte           -128 to 127
+	signed char
+	unsigned char
+	short			2 byte 	        -32,768 to 32,767			signed short
+	unsigned short
+	int
+	signed int
+	unsigned int
+	short int
+	signed short int
+	unsigned short int
+	long int		4 byte
+	signed long int
+	unsigned long int
+	float
+	double                  8 byte
+	long double		10 byte
+
+C++ Keywords
+ 
+	auto, break, case, char, const, continue, default, do, doubluto, break, case, char, const, continue, default, do, double, else,            extern, float, for, goto, register, sizeof, static, switch, typedef,            union, unsigned, void, volatile, while, asm, dynamic_cast, namespace,           reinterpret_cast, bool, explicit, new, static_cast, false, catch,
+        operator, template, friend, private, class, this, inline, public                throw, const_cast, delete, mutable, protected, true, try, typeid
+        typename, using, virtual, wchar_t
+
+C++ Operators
+	
+	Postfix		() [] -> . ++ - -                    Left to right
+	Unary		+ - ! ~ ++ - - (type)* & sizeof	     Right to left
+	Multiplicative  * / %                                Left to right   
+	Additive	+ -				     Right to left
+	Shift		<< >>                                Left to right
+	Relational	< <= > >=                            Left to right
+	Equality	== !=/td>                            Right to left
+	Bitwise AND  	&                                    Left to right
+	Bitwise XOR	^                                    Left to right
+	Bitwise OR	|                                    Right to left
+	Logical AND	&&                                   Left to right
+	Logical OR	||                                   Left to right
+	Conditional	?:                                   Right to left
+	Assignment	= += -= *= /= %=>>= <<= &= ^= |=     Right to left
+	Comma 		,                                    Left to right
+
+C++ if-else
+	
+	if statement
+		if(condition){    
+			//code to be executed    
+		}
+
+	if else
+		if(condition){    
+			//code if condition is true    
+		}
+		else{    
+			//code if condition is false    
+		}    
+
+	if else ladder
+		if(condition1){    
+			//code to be executed if condition1 is true    
+		}
+		else if(condition2){    
+			//code to be executed if condition2 is true    
+		}    
+		else if(condition3){    
+			//code to be executed if condition3 is true    
+		}    
+...    
+		else{    
+			//code to be executed if all the conditions are false    
+		}    	  
+
+C++ switch
+
+	switch(expression){      
+		case value1:      
+		//code to be executed;      
+		break;    
+		case value2:      
+		//code to be executed;      
+		 break;    
+		......      
+			  
+		default:       
+		 //code to be executed if all cases are not matched;      
+		 break;    
+	}
+
+C++ For Loop
+		for(int i=x;i<=y;i++) 
+			{
+			//code to be executed
+			}
+			
+		        for (; ;)    
+				{
+				//an infinite for loop
+				}
+				
+C++ While Loop	
+	while(condition){    
+		//code to be executed    
+	}
+
+	when using nested while loops always declare the next variable 
+	inside the first
+	
+C++ do while Loop	
+	
+	do{    
+		//code to be executed    
+	}while(condition);  
+	
+C++ continue
+	
+	when used makes sure no code is  execution when the iteration satisfies
+	the condition
+	
+C++ Goto statement
+	
+	if condition is met reverts to previous code where goto call was made
+	
+	goto:
+		//code to be executed
+	
+	if (true){
+		goto goto;
+		}
+
+C++ comments
+
+	// single line comments
+	
+	/* multi-line 
+	comments*/
+	
+
+C++ arrays
+	
+	initialize -  int arr[5]={10, 0, 20, 0, 30}
+	traverse -   
+        //traversing array    
+        for (int i = 0; i < 5; i++)    
+        {    
+            cout<<arr[i]<<"\n";    
+        }      
+		
+	multidimensional array = arr[x][y]
+	
+C++ Pointers
+
+	& (ampersand sign) 	Determine the address of a variable.
+	*(asterisk sign)    	Access the value of an address.
+	
+	
+	 to swap values of
+int a=20,b=10,*p1=&a,*p2=&b;    
+cout<<"Before swap: *p1="<<*p1<<" *p2="<<*p2<<endl;    
+*p1=*p1+*p2;    
+*p2=*p1-*p2;    //swapping logic
+*p1=*p1-*p2;    
+cout<<"After swap: *p1="<<*p1<<" *p2="<<*p2<<endl;    
+   return 0;  
+}  
+
+C++ Classes
+
+	class class
+		{
+		public:
+		item  
+		item 
+		item
+		}
+		
+	methods are functions inside class
+	
+	C++ Constructor
+		
+		class [class] {
+			public:
+				[class]()
+					{
+					[value]		
+					}
+			
+		}
+	
+	Employee e1; call to new class object
+	
+		Parameterized Constructor
+			
+		class [class] {
+			public:
+				int type;
+				double such;
+				float foumble;
+				[class](int x, double y, float z)
+				{
+				type = x
+				such =y
+				foumble = z
+				}
+   
+	C++ Destructor - tears down class objects can only be
+	defined once and is used automatically, prefix by tilde sign
+	
+	C++ This Pointer
+	used when parameters equal field value names in class
+	
+	class Employee {  
+   public:  
+       int id;       
+       string name;   
+       float salary;  
+       Employee(int id, string name, float salary)    
+        {    
+             this->id = id;    
+            this->name = name;    
+            this->salary = salary;   
+        }    
+	
+	C++ static
+			class [class]{
+				public:
+					static int count ;
+					[class] () 
+						{
+						count ++;
+						}
+			}
+			
+			
+	every instance of the class would refer to the same
+	static vairable
+	
+C++ struct - used for shapes, and dimesison not meant to be changed
+
+	struct [struct]
+	{
+	int height;
+	int width;
+	int length;
+	
+	struct(int w, int l) {
+		w = width;
+		l = length;
+		}
+	}
+	
+	
+	int main() {
+		struct sturct
+		struct.height = [number]
+		struct.width = [number]
+	}
+
+C++ enum
+	
+	enum can be traversed like arrays
+	have fields constructors and method
+	cannot extend enum class
+	just like an array
+	
+	enum [enum] {values ...} ;
+	
+	how it works
+	[enum] = Value //if not inside complier throws an error
+	[enum] is now a variable with one value from the enum now	
+
+C++ Friend Function
+	
+	access protected and private data of struct
+	
+	class [class]
+	{
+		friend [type] [name] ([args]);
+	}
+
+C++ Inheritance
+
+	base class gives data
+	derived class inherits
+	
+	C++ Single Level Inheritance
+
+class Account {  
+   public:  
+   float salary = 60000;   
+ };  
+   class Programmer: public Account {  
+   public:  
+   float bonus = 5000;    
+   };       
+int main(void) {  
+     Programmer p1;  
+     cout<<"Salary: "<<p1.salary<<endl;    
+     cout<<"Bonus: "<<p1.bonus<<endl;    
+    return 0;  
+}  
+
+ class Animal {  
+   public:  
+ void eat() {   
+    cout<<"Eating..."<<endl;   
+ }    
+   };  
+   class Dog: public Animal    
+   {    
+       public:  
+     void bark(){  
+    cout<<"Barking...";   
+     }    
+   };   
+int main(void) {  
+    Dog d1;  
+    d1.eat();  
+    d1.bark();  
+    return 0;  
+}  
+
+
+	C++ multi_level inheritance
+
+class Animal {  
+   public:  
+ void eat() {   
+    cout<<"Eating..."<<endl;   
+ }    
+   };  
+   class Dog: public Animal   
+   {    
+       public:  
+     void bark(){  
+    cout<<"Barking..."<<endl;   
+     }    
+   };   
+   class BabyDog: public Dog   
+   {    
+       public:  
+     void weep() {  
+    cout<<"Weeping...";   
+     }    
+   };   
+int main(void) {  
+    BabyDog d1;  
+    d1.eat();  
+    d1.bark();  
+     d1.weep();  
+     return 0;  
+}
+
+C++ Aggregration
+	
+	its inheritance but its like a pulled inheritance to avoid the unniversial aspect of static variables
+
+class Address {  
+    public:  
+   string addressLine, city, state;    
+     Address(string addressLine, string city, string state)    
+    {    
+        this->addressLine = addressLine;    
+        this->city = city;    
+        this->state = state;    
+    }    
+};  
+class Employee    
+    {    
+        private:  
+        Address* address;  //Employee HAS-A Address   
+        public:  
+        int id;    
+        string name;    
+        Employee(int id, string name, Address* address)    
+       {    
+           this->id = id;    
+           this->name = name;    
+           this->address = address;    
+       }    
+     void display()    
+       {    
+           cout<<id <<" "<<name<< " "<<     
+             address->addressLine<< " "<< address->city<< " "<<address->state<<endl;    
+       }    
+   };   
+int main(void) {  
+    Address a1= Address("C-146, Sec-15","Noida","UP");    
+    Employee e1 = Employee(101,"Nakul",&a1);    
+            e1.display();   
+   return 0;  
+}  
+
+C++ polymorphism 
+	
+
+	C++ Runtime polymorphism
+	
+	it seems that when you use a derived class with the same method what happens here
+	is that the complier executes the code from the derived class instead of the base class
+	
+	class [class] {
+		public: 
+		[type] [function_name] () {
+			//executable code
+		}
+	}
+	
+	class [extension] : public [class]
+	public:
+	[type] [function_name] ()
+		{	
+		//exectuable code
+		}
+
+	when using class extension function from extension gets used although the two are the same
+	if you are making two or more derived classes using runtime polymorphism
+	when retreving data members the linux g++ version 5.4.0 will throw an error
+
+
+C++ overloading
+	
+	C++ Function Overloading 
+	allows you to use a function name, for different purposes, much like optional argumnent
+	but with additinal optional executable code for those arguments
+
+                #include <iostream>  
+                using namespace std;  
+                class Cal {  
+                    public:  
+                static int add(int a,int b){    
+                        return a + b;    
+                    }    
+                static int add(int a, int b, int c)    
+                    {    
+                        return a + b + c;    
+                    }    
+                };   
+                int main(void) {  
+                    Cal C;  
+                    cout<<C.add(10, 20)<<endl;    
+                    cout<<C.add(12, 20, 23);   
+                   return 0;  
+                }  
+
+	
+	C++ Operator overloading
+	allows you to redefine what an operator does
+	
+	class Test  
+            {  
+               private:  
+                  int num;  
+               public:  
+                   Test(): num(8){}  
+                   void operator ++()   
+                   {   
+                      num = num+2;   
+                   }  
+                   void Print() {   
+                       cout<<"The Count is: "<<num;   
+                   }  
+            };  
+            int main()  
+            {  
+                Test tt;  
+                ++tt;  // calling of a function "void operator ++()"  
+                tt.Print();  
+                return 0;  
+            }  
+
+
+left off at C++ Function Overriding
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+notes
+--giving class fields a value give a warning by the linux g++ v 5.4.0 complier		
