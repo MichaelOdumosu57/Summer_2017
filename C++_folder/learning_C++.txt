@@ -624,8 +624,240 @@ C++ Strings
     return 0;
 
 
+	C++ String Length
+	
+	 strlen([string])
 
+
+
+
+C++ Exception handling
+
+	need #include <exception>
+	
+    std::exception	It is an exception and parent class of all standard C++ exceptions.
+        std::logic_failure	It is an exception that can be detected by reading a code.
+            std:: domain_error
+            std:: invalid_argument
+            std:: length_error
+            std:: out_of_range
+        std::runtime_error	It is an exception that cannot be detected by reading a code.
+            std::overflow_error
+            std::range_error
+            std::underflow_error
+        std::bad_exception	It is used to handle the unexpected exceptions in a c++ program.
+        std::bad_cast	This exception is generally be thrown by dynamic_cast.
+        std::bad_typeid	This exception is generally be thrown by typeid.
+        std::bad_alloc	This exception is generally be thrown by new.
 
 	
+
+    C++ Try/Catch
+float division(int x, int y) {  
+   if( y == 0 ) {  
+      throw "Attempted to divide by zero!";  
+   }  
+   return (x/y);  
+}  
+int main () {  
+   int i = 25;  
+   int j = 0;  
+   float k = 0;  
+   try {  
+      k = division(i, j);  
+      cout << k << endl;  
+   }catch (const char* e) {  
+      cerr << e << endl;  
+   }  
+   return 0;  		
+
+   C++ User-Defined
+    class MyException : public exception{  
+        public:  
+            const char * what() const throw()  
+            {  
+                return "Attempted to divide by zero!\n";  
+            }  
+    };  
+    int main()  
+    {  
+        try  
+        {  
+            int x, y;  
+            cout << "Enter the two numbers : \n";  
+            cin >> x >> y;  
+            if (y == 0)  
+            {  
+                MyException z;  
+                throw z;  
+            }  
+            else  
+            {  
+                cout << "x / y = " << x/y << endl;  
+            }  
+        }  
+        catch(exception& e)  
+        {  
+            cout << e.what();  
+        }  
+    }  	
+
+C++ Functions
+	
+	Function Declaration
+
+	//function prototyple
+	 [return_type] [function_name]([data_type] [parameter]...) 
+
+	[return_type] [function_name]([data_type] [parameter]...)  
+        	{    
+        	//code to be executed    
+        	}  
+
+	Call by value
+		does not change the value of the variable only uses it
+
+	Call by referece 
+		chages the values of the variable if it is done in calculation
+        void swap(int *x, int *y)  
+        {  
+         int swap;  
+         swap=*x;  
+         *x=*y;  
+         *y=swap;  
+        }  
+        int main()   
+        {    
+         int x=500, y=100;    
+         swap(&x, &y);  // passing value to function  
+         cout<<"Value of x is: "<<x<<endl;  
+         cout<<"Value of y is: "<<y<<endl;  
+         return 0;
+
+C++ Recursion
+	a function that calls itself to achieve a goal
+        
+   
+        int main()  
+        {  
+        int factorial(int);  
+        int fact,value;  
+        cout<<"Enter any number: ";  
+        cin>>value;  
+        fact=factorial(value);  
+        cout<<"Factorial of a number is: "<<fact<<endl;  
+        return 0;  
+        }  
+        int factorial(int n)  
+        {  
+        if(n<0)  
+        return(-1); /*Wrong value*/    
+        if(n==0)  
+        return(1);  /*Terminating condition*/  
+        else  
+        {  
+        return(n*factorial(n-1));      
+        }  
+        }  
+
+
+
+
+C++ Storage Class
+	they define the lifetime and visibllity of a variable
+
+Storage Class	     Keyword	          Lifetime	      Visibility	      Initial Value
+Automatic	        auto	           Function Block      Local	              Garbage
+Register	      register	       Function Block	       Local	              Garbage
+Mutable	              mutable	            Class	       Local	              Garbage
+External	       extern	       Whole Program	      Global	               Zero
+Static	              static	       Whole Program	      Local	               Zero
+	
+
+ 
+Automatic Storage Class
+{   
+auto int y;  
+float y = 3.45;  
+}  
+
+//can only be used within function
+
+Register Storage Class
+register int counter=0; 
+
+//cannot get address of a register
+
+Static Storage Class
+//initialized once and exists through program
+
+
+External Storage class
+extern int counter=0;
+//visible to all files using the variables
+
+
+C++ Files and Streams
+	
+	Writing to a file
+          int main () {  
+          ofstream filestream("testout.txt");  
+          if (filestream.is_open())  
+          {  
+            filestream << "Welcome to javaTpoint.\n";  
+            filestream << "C++ Tutorial.\n";  
+            filestream.close();  
+          }  
+          else cout <<"File opening is fail.";  
+          return 0
+
+	Reading from a file
+      int main () {  
+      string srg;  
+      ifstream filestream("testout.txt");  
+      if (filestream.is_open())  
+      {  
+        while ( getline (filestream,srg) )  
+        {  
+          cout << srg <<endl;  
+        }  
+        filestream.close();  
+      }  
+      else {  
+          cout << "File opening is fail."<<endl;   
+        }  
+      return 0;
+
+
+	Reading and Writing
+	// use cin.igonore when the buffer input from user does not fill the size of the string
+
+            int main () {  
+               char input[75];  
+               ofstream os;  
+               os.open("testout.txt");  
+               cout <<"Writing to a text file:" << endl;  
+               cout << "Please Enter your name: ";   
+               cin.getline(input, 100);  
+               os << input << endl;  
+               cout << "Please Enter your age: ";   
+               cin >> input;  
+               cin.ignore();  
+               os << input << endl;  
+               os.close();  
+               ifstream is;   
+               string line;  
+               is.open("testout.txt");   
+               cout << "Reading from a text file:" << endl;   
+               while (getline (is,line))  
+               {  
+               cout << line << endl;  
+               }      
+               is.close();  
+               return 0;  
+
+
+
+
 notes
 --giving class fields a value give a warning by the linux g++ v 5.4.0 complier		
