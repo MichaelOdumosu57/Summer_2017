@@ -520,22 +520,108 @@ C++ overloading
             }  
 
 
-left off at C++ Function Overriding
+C++ Function Overriding
+	
+	like function overloading however it is used from different class
+	class [class] {
+	
+C++ Virtual Function
+	
+	allows one pointer class to function manipulation wheneven it uses the derived function clas, its highly powerful just wait to use it
+	
+                class A  
+                {  
+                 public:  
+                 virtual void display()  
+                 {  
+                  cout << "Base class is invoked"<<endl;  
+                 }  
+                };  
+                class B:public A  
+                {  
+                 public:  
+                 void display()  
+                 {  
+                  cout << "Derived Class is invoked"<<endl;  
+                 }  
+                };  
+                int main()  
+                {  
+                 A* a;    //pointer of base class  
+                 B b;     //object of derived class  
+                 a = &b;  
+                 a->display();   //Late Binding occurs  
+                }  	
 
 
 
 
 
 
+C++ Abstractation
+	a way to show only what you need from a program not all the internal details
+	
+	it using a function and making it equal to zero
+	then using it as it was function overriding
+	
+	C++ Data Abstractation is used with public and private members
+
+C++ Namespaces
+
+	used to group classes together gives you more power when u run out of names
+	
+C++ Strings
+	
+	to make a string
+
+        string s1 = "Hello";    
+                char ch[] = { 'C', '+', '+'};    
+                string s2 = string(ch);    
+                cout<<s1<<endl;    
+                cout<<s2<<endl; 	
+
+	C++ String Compare
+	
+		need to use #include <cstring>
+		
+		(strcmp (key,buffer) != 0)
 
 
 
 
+	C++ String Concat
+		
+		special way to append string remember the getline method
+        char key[25], buffer[25];  
+        cout << "Enter the key string: ";  
+        cin.getline(key, 25);  
+        cout << "Enter the buffer string: ";  
+         cin.getline(buffer, 25);  
+        strcat(key, buffer);   
+        cout << "Key = " << key << endl;  
+        cout << "Buffer = " << buffer<<endl;  
+        return 0;  
 
+	C++ String Copy
+	
+	//to copy into an empty string object
+    char key[25], buffer[25];
+    cout << "Enter the key string: ";
+    cin.getline(key, 25);
+    strcpy(buffer, key);
+    cout << "Key = "<< key << endl;
+    cout << "Buffer = "<< buffer<<endl;
 
-
-
-
+	//to replace a string
+    char keys[25], buffers[25];
+    cout << "Enter the key string: ";
+    cin.getline(keys, 25);
+    cout << "Enter the buffer string: ";
+    cin.getline(buffers, 25);
+    strcpy(buffers, keys);
+    cout << "Key = "<< keys << endl;
+    cout << "Buffer = "<< buffers <<endl;
+    return 0;
 
 
 
