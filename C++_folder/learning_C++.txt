@@ -205,7 +205,7 @@ C++ Pointers
 	
 	
 	 to swap values of
-int a=20,b=10,*p1=&a,*p2=&b;    
+int a=20,b=10,*p1=&a,*p2=b;    
 cout<<"Before swap: *p1="<<*p1<<" *p2="<<*p2<<endl;    
 *p1=*p1+*p2;    
 *p2=*p1-*p2;    //swapping logic
@@ -861,3 +861,6 @@ C++ Files and Streams
 
 notes
 --giving class fields a value give a warning by the linux g++ v 5.4.0 complier		
+-- when doing call by reference use ampersand on the variable that you are using in the function call
+	function (&variable)
+   then use *[parameter name] to refer to the referenced variables value instead of its address
