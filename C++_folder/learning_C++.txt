@@ -24,6 +24,8 @@ C++ I/O Library Header Files
 C++ cout
 	use
 	cout << [variable,string] << [variable,string] << [endl]
+	//can also using index array to do cout	
+
 
 C++ cin
 	cin >> [variable]
@@ -52,7 +54,8 @@ C++ Data Types
 	char			1 byte           -128 to 127
 	signed char
 	unsigned char
-	short			2 byte 	        -32,768 to 32,767			signed short
+	short			2 byte 	        -32,768 to 32,767		
+	signed short
 	unsigned short
 	int
 	signed int
@@ -91,6 +94,7 @@ C++ Operators
 	Assignment	= += -= *= /= %=>>= <<= &= ^= |=     Right to left
 	Comma 		,                                    Left to right
 
+	// % only should work with int types
 C++ if-else
 	
 	if statement
@@ -136,7 +140,8 @@ C++ switch
 		 //code to be executed if all cases are not matched;      
 		 break;    
 	}
-
+	
+	// switch parameters can only take integers
 C++ For Loop
 		for(int i=x;i<=y;i++) 
 			{
@@ -572,6 +577,13 @@ C++ Namespaces
 	
 C++ Strings
 	
+	for reading strings from cin
+
+        	cin.getline([string],[array_size]);
+        	cin >> [string];	
+		
+	
+
 	to make a string
 
         string s1 = "Hello";    
@@ -719,6 +731,7 @@ C++ Functions
 
 	Call by referece 
 		chages the values of the variable if it is done in calculation
+		//in C++ once function is finished then variable changes
         void swap(int *x, int *y)  
         {  
          int swap;  
@@ -863,4 +876,7 @@ notes
 --giving class fields a value give a warning by the linux g++ v 5.4.0 complier		
 -- when doing call by reference use ampersand on the variable that you are using in the function call
 	function (&variable)
-   then use *[parameter name] to refer to the referenced variables value instead of its address
+   then use *[parameter name] to refer to the referenced variables value instead of its addressI
+-- if a number seems too large refer to the variable type screen to see what is wrong with it
+--to convert from int to char 
+	std::cout << char(ch) << '\n';

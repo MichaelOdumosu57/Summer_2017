@@ -1,0 +1,131 @@
+learning java
+
+current version Java SE 8
+JDK Alpha and Beta (1995)
+JDK 1.0 (23rd Jan, 1996)
+JDK 1.1 (19th Feb, 1997)
+J2SE 1.2 (8th Dec, 1998)
+J2SE 1.3 (8th May, 2000)
+J2SE 1.4 (6th Feb, 2002)
+J2SE 5.0 (30th Sep, 2004)
+Java SE 6 (11th Dec, 2006)
+Java SE 7 (28th July, 2011)
+Java SE 8 (18th March, 2014)
+
+Java buzzwords- features
+    Simple
+    Object-Oriented
+    Portable
+    Platform independent
+    Secured
+    Robust
+    Architecture neutral
+    Dynamic
+    Interpreted
+    High Performance
+    Multithreaded
+    Distributed
+
+downloading Java SDK
+https://www.digitalocean.com/community/tutorials/how-to-install-java-with-apt-get-on-ubuntu-16-04
+
+to compile it 
+javac [source file].java
+
+to execute
+java [main class]
+
+basically what happens is
+	classes are in a .java file
+	when complied they make all the classes inside .java 
+	the classes are complied and executables are .class
+	run each class as needed
+
+also can use as main
+public static void main(String[] args)  
+public static void main(String []args)  
+public static void main(String args[])  
+public static void main(String... args)  
+static public void main(String[] args)  
+public static final void main(String[] args)  
+final public static void main(String[] args)  
+final strictfp public static void main(String[] args) 
+
+JVM 
+	Java Virtual Machine
+	abstract  machine - specification that provides runtime environment in which java bytecod
+	e can be executed
+	
+	
+JRE
+	
+	Java Runtime Environment
+	used to provide runtime enviorment and is helped with libraries
+
+JDK
+	Java Development Kit
+	Contains JRE and development tools
+
+JVM inside JRE inside JDK
+
+Java Variables
+	local variable
+	variable which is declared inside the method
+
+	instance variable
+	variable which is declared inside the class but outside the method, is called instance 
+	variable
+
+	static variable
+	a variable that has a universal scope which cannot be local
+
+Java Data Types
+	
+
+	Primitive
+		boolean    false    1 bit
+	Numeric
+		char       '\u0000' 2 byte	
+	Integral
+		Integer
+			byte     0      1 byte
+			short    0      2 byte
+			int      0      4 byte
+			long     0L     8 byte
+		Floating-Point
+			float    0.0f   4 byte
+			double   0.0d   8 byte
+	Non-Primitive   
+
+	--when a Floating-point number has a fraction value, you must use f like 10.5f to 
+	indicate to the complier that it is such a number
+	-- when adding byte numbers do 
+	byte a=10;  
+	byte b=10; 	
+	byte c=(byte)(a+b);
+
+Unicode 
+	universal but not completely compatbilite some characters use different bytes
+
+Java Operator Precedence
+    Unary	postfix	                expr++ expr--
+                prefix	                ++expr --expr +expr -expr ~ !
+    Arithmetic	multiplicative	        * / %
+                additive	            + -
+    Shift	    shift	                << >> >>>
+    Relational	comparison	            < > <= >= instanceof
+    equality	                        == !=
+    Bitwise	    bitwise AND	            &
+                bitwise exclusive OR	^
+                bitwise inclusive OR	|
+    Logical	    logical AND	            &&
+                logical OR	            ||
+    Ternary	    ternary	                ? :
+    Assignment	assignment	            = += -= *= /= %= &= ^= |= <<= >>= >>>=	
+	
+	--(x++) (x--) will change the number but print the orginal number
+	--(++x) (--x) will change the number to its final result along with any changes the 
+	  previous note
+	-- ~ on a number when negate it and subtract one from it
+	
+LEFT OFF AT Java Arithmetic Operator Example: Expression
