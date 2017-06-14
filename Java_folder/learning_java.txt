@@ -127,5 +127,140 @@ Java Operator Precedence
 	--(++x) (--x) will change the number to its final result along with any changes the 
 	  previous note
 	-- ~ on a number when negate it and subtract one from it
+	--order of operations follows PEMDAS
+	--when you do left shift on an operatiors [number] << [x] what happens is
+	  [number] * 2 ^ 2
+	--when you do right shift on an operatiors [number] << [x] what happens is
+        -- [number] / 2 ^ 2 
+ 	-- logical
+	   int a=10;  
+	   int b=5;  
+	   int c=20; 
+
+	   for logical AND OR
+	   a<b&&a++<c
+	   a>b||a++<c
+	   
+	   a still equals ten
+
+	   for bitwise AND OR
+	   a>b&a++<c
+	   a>b|a++<c
 	
-LEFT OFF AT Java Arithmetic Operator Example: Expression
+	   a will equal 11	
+	--short
+	  short a=10;  
+	  short b=10;
+	  
+	  always use assignment operators not arithmetic operators or
+	  (short)([arithmetic expression])
+	  
+Java Conditonal
+	if else works the same when doing multiple if else its if 
+        if 
+	if else 	
+	...
+	else
+
+Java Switch
+	
+	--same thing
+	--case must be int only works with cases
+	--if you do not put a break it would execute all the cases after it along with the default
+
+Java For Loop
+
+	Java For Each Loop
+		
+		[Type] [var]:[array]
+	
+	Java Labeled For Loop
+
+		[loop_name]:
+			for(int i =0; [conditonal]; [conuter])
+		
+	Java Infinitive For Loop
+
+		for(;;)	
+	--for is same
+	-- to break a labeled for loop
+	-- break [label]:
+
+Java While Loop
+
+	--same typical thing
+	--infinite while loop is the same
+
+Java do-while Loop
+	
+	--SAME typical thing
+	-- infinte loop is same too
+
+Java Break Statement
+	
+	--same typical thing
+
+Java Continue Statement
+	
+	--same typeical thing
+
+Java Comments
+
+	//This is single line comment  
+	
+        /* 
+        This  
+        is  
+        multi line  
+        comment 
+        */  
+
+        /** 
+        This  
+        is  
+        documentation  
+        comment 
+        */  
+
+	--if a file has a doc comment do
+	  javac [file].java
+	  javadoc [file].java
+
+Java OOPs Concepts
+	
+Java Naming conventions
+	
+    class name	        should start with uppercase letter and be a noun e.g. String, Color, Button, System, Thread etc.
+    
+    interface name	should start with uppercase letter and be an adjective e.g. Runnable, Remote, ActionListener etc.
+    
+    method name	        should start with lowercase letter and be a verb e.g. actionPerformed(), main(), print(), println() etc.
+    
+    variable name	should start with lowercase letter e.g. firstName, orderNumber etc.
+    
+    package name	should be in lowercase letter e.g. java, lang, sql, util etc.
+    
+    constants name	should be in uppercase letter. e.g. RED, YELLOW, MAX_PRIORITY etc.		
+	--Java follows camelcase syntax for naming the class, interface, method and variable.
+	  [firstwordSecondword]
+
+Java Objects and Classes
+
+	--The new keyword is used to allocate memory at run time. All objects get memory in Heap memory area.
+
+Java Constructor
+	
+	--a method
+	--Constructor name must be same as its class name
+	--Constructor must have no explicit return type
+
+
+	Default Constructor
+	
+		[class_name>](){System.out.println("Object is created")}  
+
+		-- If there is no constructor in a class, compiler automatically creates a default constructor.
+
+	
+	Java parameterized constructor
+
