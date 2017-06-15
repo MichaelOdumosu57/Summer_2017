@@ -263,4 +263,39 @@ Java Constructor
 
 	
 	Java parameterized constructor
+	
+		--it is just a consturctor with parameters needed by the class object
 
+	Java Constructor Overloading 
+		
+        --Constructor is used to initialize the state of an object.
+        --Constructor must not have return type
+        --Constructor is invoked implicitly.
+        --The java compiler provides a default constructor if you don't have any constructor.
+        --Constructor name must be same as the class name.
+
+
+
+	Java Copy Constructor
+	
+		syntax
+		Student6 s1 = new Student6(111,"Karan");  
+                Student6 s2 = new Student6(s1); 
+
+
+	Java Copying values without constructor
+	
+                Student7 s1 = new Student7(111,"Karan");  
+                Student7 s2 = new Student7();  
+                s2.id=s1.id;  
+                s2.name=s1.name; 
+	
+
+	--constructor performs tasks like object creation, starting a thread, calling method etc. 	You can perform any operation in the constructor as you perform in the method.		
+
+
+
+
+Java static keyword
+
+	
