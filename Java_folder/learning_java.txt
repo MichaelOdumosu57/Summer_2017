@@ -336,7 +336,243 @@ Java static keyword
 
 
 Java This Keyword
+
+	this:	 to refer current class instance variable
 	
-	this: to refer current class instance variable
+	--if you do not use that keyword when the parameters in the constructor are the same as 	    name as the variables, the system would always print out default values from an object 	      creation with different variables				
+
+	this: to invoke current class method
+		
+		[class] {
+			[method_a](){
+
+			}
+
+			[method_b]() {
+			this.[method_a]();
+			}
+
+			
+		}
 	
+	 this() : to invoke current class constructor
+	
+		-- used to reuse the constructor.
+		-- this() must be first statement in constructor
+	
+		[class] {
+			[constructor_method]{
+			
+			}
+
+			[constructor_method] {
+				this();
+
+			}
+
+		}
+
+                [class] {
+                        [constructor_method]([variable],[vairable]){
+                
+                        }
+
+                        [constructor_method] {
+                                this([value],[value] );
+                        
+                        }
+
+                }
+
+	 this: to pass as an argument in the method
+
+		[class] {
+		
+			[method]([class object]) {
+
+			}
+			
+			[method] {
+
+			[method}(this);
+			}	
+		}
+
+		--done when the self object is needed in a function call
+
+	
+	this: to pass as argument in the constructor call
+
+                [class] {
+                
+                    [constructor_method]([class] [object]) {
+
+                    }
+                }
+    
+
+                [class] {
+                    [constructor_method] () {
+                    [class] [object] = new [class](this);    
+                    }
+
+        
+                
+                }
+
+
+	this keyword can be used to return current class instance
+
+                [return_type method_name](){
+                return this;
+                }		
+
+
+                [class]{  
+                [class] [method](){  
+                    return this;     //returns the result of another method after this method was
+					called on the same in the class instance
+
+		new [class].[this_method]().[method];
+	
+
+		--this keyword in a class ultimately means the object at time of creation
+
+  
+                }		
+
+Java Inheritance
+
+	[sub_class] extends [class] {
+
+	}
+
+	Java Inheritance types	
+
+    
+
+        Single
+
+        /-------------/
+        /             /
+        /    ClassA   /
+        /             /
+        /-------------/
+
+              /\
+             /||\
+              ||
+              ||
+              ||
+
+        /-------------/
+        /             /
+        /    ClassB   /
+        /             /
+        /-------------/
+        
+        Mulitlevel
+
+        /-------------/
+        /             /
+        /    ClassA   /
+        /             /
+        /-------------/
+
+              /\
+             /||\
+              ||
+              ||
+              ||
+
+        /-------------/
+        /             /
+        /    ClassB   /
+        /             /
+        /-------------/
+
+              /\
+             /||\
+              ||
+              ||
+              ||
+
+        /-------------/
+        /             /
+        /    ClassC   /
+        /             /
+        /-------------/
+
+
+        Hierachal
+
+                /-------------/
+                /             /
+                /    ClassA   /
+                /             /
+                /-------------/
+
+                  / /      \ \
+                / /         \ \
+              / /            \ \
+             / /              \ \
+
+        /-------------/        /---------------/
+        /             /        /               /
+        /    ClassB   /        /    Class C    /
+        /             /        /               /
+        /-------------/        /---------------/
+
+
+        Mutltiple
+
+
+        /-------------/        /---------------/
+        /             /        /               /
+        /    ClassA   /        /    Class B    /
+        /             /        /               /
+        /-------------/        /---------------/
+
+           \ \                        / /
+            \ \                      / /
+             \ \                    / /
+              \ \                  / /
+
+                /-------------/
+                /             /
+                /    ClassA   /
+                /             /
+                /-------------/
+
+        Hybrid
+
+                /-------------/
+                /             /
+                /    ClassA   /
+                /             /
+                /-------------/
+
+                  / /      \ \
+                / /         \ \
+              / /            \ \
+             / /              \ \
+
+        /-------------/        /---------------/
+        /             /        /               /
+        /    ClassB   /        /    Class C    /
+        /             /        /               /
+        /-------------/        /---------------/
+
+
+           \ \                        / /
+            \ \                      / /
+             \ \                    / /
+              \ \                  / /
+
+                /-------------/
+                /             /
+                /    ClassD   /
+                /             /
+                /-------------/		
+
 	
