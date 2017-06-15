@@ -298,4 +298,30 @@ Java Constructor
 
 Java static keyword
 
+	--memory management mainly
+	--belongs to the class rather than the object
+	--can be variable, method, block, nested class
+
+	Java static variable
+		
+		--gets memory once
+
+	Java static counter
 	
+		-- use a static counter, so the count can increment as the object is being made
+
+	Java static method	
+	
+
+                to call it
+                [cla`ss_name].[static_method]();
+
+		--A static method can be invoked without the need for creating an instance of a class.
+		--static method can access static data member and can change the value of it.
+
+		
+		--place static in front of method to let complier know what type it is
+
+		--The static method can not use non static data member or call non-static method 		directly.
+
+		--this and super cannot be used in static context.	
