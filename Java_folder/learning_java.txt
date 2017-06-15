@@ -325,3 +325,18 @@ Java static keyword
 		--The static method can not use non static data member or call non-static method 		directly.
 
 		--this and super cannot be used in static context.	
+
+	Java static block
+
+		--Is used to initialize the static data member.
+		
+		--it is executed before main method at the time of classloading.
+		
+		--we could execute a program but only before JDK 1.7
+
+
+Java This Keyword
+	
+	this: to refer current class instance variable
+	
+	
