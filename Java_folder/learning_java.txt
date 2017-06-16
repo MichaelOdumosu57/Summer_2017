@@ -29,7 +29,7 @@ Java buzzwords- features
 downloading Java SDK
 https://www.digitalocean.com/community/tutorials/how-to-install-java-with-apt-get-on-ubuntu-16-04
 
-to compile it 
+to compile it
 javac [source file].java
 
 to execute
@@ -37,21 +37,21 @@ java [main class]
 
 basically what happens is
 	classes are in a .java file
-	when complied they make all the classes inside .java 
+	when complied they make all the classes inside .java
 	the classes are complied and executables are .class
 	run each class as needed
 
 also can use as main
-public static void main(String[] args)  
-public static void main(String []args)  
-public static void main(String args[])  
-public static void main(String... args)  
-static public void main(String[] args)  
-public static final void main(String[] args)  
-final public static void main(String[] args)  
-final strictfp public static void main(String[] args) 
+public static void main(String[] args)
+public static void main(String []args)
+public static void main(String args[])
+public static void main(String... args)
+static public void main(String[] args)
+public static final void main(String[] args)
+final public static void main(String[] args)
+final strictfp public static void main(String[] args)
 
-JVM 
+JVM
 	Java Virtual Machine
 	abstract  machine - specification that provides runtime environment in which java bytecod
 	e can be executed
@@ -73,7 +73,7 @@ Java Variables
 	variable which is declared inside the method
 
 	instance variable
-	variable which is declared inside the class but outside the method, is called instance 
+	variable which is declared inside the class but outside the method, is called instance
 	variable
 
 	static variable
@@ -85,7 +85,7 @@ Java Data Types
 	Primitive
 		boolean    false    1 bit
 	Numeric
-		char       '\u0000' 2 byte	
+		char       '\u0000' 2 byte
 	Integral
 		Integer
 			byte     0      1 byte
@@ -95,16 +95,16 @@ Java Data Types
 		Floating-Point
 			float    0.0f   4 byte
 			double   0.0d   8 byte
-	Non-Primitive   
+	Non-Primitive
 
-	--when a Floating-point number has a fraction value, you must use f like 10.5f to 
+	--when a Floating-point number has a fraction value, you must use f like 10.5f to
 	indicate to the complier that it is such a number
-	-- when adding byte numbers do 
-	byte a=10;  
-	byte b=10; 	
+	-- when adding byte numbers do
+	byte a=10;
+	byte b=10;
 	byte c=(byte)(a+b);
 
-Unicode 
+Unicode
 	universal but not completely compatbilite some characters use different bytes
 
 Java Operator Precedence
@@ -121,21 +121,21 @@ Java Operator Precedence
     Logical	    logical AND	            &&
                 logical OR	            ||
     Ternary	    ternary	                ? :
-    Assignment	assignment	            = += -= *= /= %= &= ^= |= <<= >>= >>>=	
+    Assignment	assignment	            = += -= *= /= %= &= ^= |= <<= >>= >>>=
 	
 	--(x++) (x--) will change the number but print the orginal number
-	--(++x) (--x) will change the number to its final result along with any changes the 
+	--(++x) (--x) will change the number to its final result along with any changes the
 	  previous note
 	-- ~ on a number when negate it and subtract one from it
 	--order of operations follows PEMDAS
 	--when you do left shift on an operatiors [number] << [x] what happens is
 	  [number] * 2 ^ 2
 	--when you do right shift on an operatiors [number] << [x] what happens is
-        -- [number] / 2 ^ 2 
+        -- [number] / 2 ^ 2
  	-- logical
-	   int a=10;  
-	   int b=5;  
-	   int c=20; 
+	   int a=10;
+	   int b=5;
+	   int c=20;
 
 	   for logical AND OR
 	   a<b&&a++<c
@@ -147,18 +147,18 @@ Java Operator Precedence
 	   a>b&a++<c
 	   a>b|a++<c
 	
-	   a will equal 11	
+	   a will equal 11
 	--short
-	  short a=10;  
+	  short a=10;
 	  short b=10;
 	  
 	  always use assignment operators not arithmetic operators or
 	  (short)([arithmetic expression])
 	  
 Java Conditonal
-	if else works the same when doing multiple if else its if 
-        if 
-	if else 	
+	if else works the same when doing multiple if else its if
+        if
+	if else
 	...
 	else
 
@@ -181,7 +181,7 @@ Java For Loop
 		
 	Java Infinitive For Loop
 
-		for(;;)	
+		for(;;)
 	--for is same
 	-- to break a labeled for loop
 	-- break [label]:
@@ -206,21 +206,21 @@ Java Continue Statement
 
 Java Comments
 
-	//This is single line comment  
+	//This is single line comment
 	
-        /* 
-        This  
-        is  
-        multi line  
-        comment 
-        */  
+        /*
+        This
+        is
+        multi line
+        comment
+        */
 
-        /** 
-        This  
-        is  
-        documentation  
-        comment 
-        */  
+        /**
+        This
+        is
+        documentation
+        comment
+        */
 
 	--if a file has a doc comment do
 	  javac [file].java
@@ -240,7 +240,7 @@ Java Naming conventions
     
     package name	should be in lowercase letter e.g. java, lang, sql, util etc.
     
-    constants name	should be in uppercase letter. e.g. RED, YELLOW, MAX_PRIORITY etc.		
+    constants name	should be in uppercase letter. e.g. RED, YELLOW, MAX_PRIORITY etc.
 	--Java follows camelcase syntax for naming the class, interface, method and variable.
 	  [firstwordSecondword]
 
@@ -257,7 +257,7 @@ Java Constructor
 
 	Default Constructor
 	
-		[class_name>](){System.out.println("Object is created")}  
+		[class_name>](){System.out.println("Object is created")}
 
 		-- If there is no constructor in a class, compiler automatically creates a default constructor.
 
@@ -266,7 +266,7 @@ Java Constructor
 	
 		--it is just a consturctor with parameters needed by the class object
 
-	Java Constructor Overloading 
+	Java Constructor Overloading
 		
         --Constructor is used to initialize the state of an object.
         --Constructor must not have return type
@@ -279,19 +279,19 @@ Java Constructor
 	Java Copy Constructor
 	
 		syntax
-		Student6 s1 = new Student6(111,"Karan");  
-                Student6 s2 = new Student6(s1); 
+		Student6 s1 = new Student6(111,"Karan");
+                Student6 s2 = new Student6(s1);
 
 
 	Java Copying values without constructor
 	
-                Student7 s1 = new Student7(111,"Karan");  
-                Student7 s2 = new Student7();  
-                s2.id=s1.id;  
-                s2.name=s1.name; 
+                Student7 s1 = new Student7(111,"Karan");
+                Student7 s2 = new Student7();
+                s2.id=s1.id;
+                s2.name=s1.name;
 	
 
-	--constructor performs tasks like object creation, starting a thread, calling method etc. 	You can perform any operation in the constructor as you perform in the method.		
+	--constructor performs tasks like object creation, starting a thread, calling method etc. 	You can perform any operation in the constructor as you perform in the method.
 
 
 
@@ -310,7 +310,7 @@ Java static keyword
 	
 		-- use a static counter, so the count can increment as the object is being made
 
-	Java static method	
+	Java static method
 	
 
                 to call it
@@ -324,7 +324,7 @@ Java static keyword
 
 		--The static method can not use non static data member or call non-static method 		directly.
 
-		--this and super cannot be used in static context.	
+		--this and super cannot be used in static context.
 
 	Java static block
 
@@ -339,7 +339,7 @@ Java This Keyword
 
 	this:	 to refer current class instance variable
 	
-	--if you do not use that keyword when the parameters in the constructor are the same as 	    name as the variables, the system would always print out default values from an object 	      creation with different variables				
+	--if you do not use that keyword when the parameters in the constructor are the same as 	    name as the variables, the system would always print out default values from an object 	      creation with different variables
 
 	this: to invoke current class method
 		
@@ -395,7 +395,7 @@ Java This Keyword
 			[method] {
 
 			[method}(this);
-			}	
+			}
 		}
 
 		--done when the self object is needed in a function call
@@ -413,7 +413,7 @@ Java This Keyword
 
                 [class] {
                     [constructor_method] () {
-                    [class] [object] = new [class](this);    
+                    [class] [object] = new [class](this);
                     }
 
         
@@ -425,11 +425,11 @@ Java This Keyword
 
                 [return_type method_name](){
                 return this;
-                }		
+                }
 
 
-                [class]{  
-                [class] [method](){  
+                [class]{
+                [class] [method](){
                     return this;     //returns the result of another method after this method was
 					called on the same in the class instance
 
@@ -439,7 +439,7 @@ Java This Keyword
 		--this keyword in a class ultimately means the object at time of creation
 
   
-                }		
+                }
 
 Java Inheritance
 
@@ -447,7 +447,7 @@ Java Inheritance
 
 	}
 
-	Java Inheritance types	
+	Java Inheritance types
 
     
 
@@ -573,6 +573,16 @@ Java Inheritance
                 /             /
                 /    ClassD   /
                 /             /
-                /-------------/		
+                /-------------/
+
+	--multiple and hybrid inheritance is supported through interface only.
+	-- Multiple inheritance is not supported in java through class.
+	
+Java Aggregation
+
+    -- a class haveing an entity reference
+    -- useful when you already have a class that performs nesscary executions, and the sub
+       execution of that class is needed
+	
 
 	
