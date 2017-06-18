@@ -586,3 +586,25 @@ Java Aggregation
 	
 
 	
+Java Method Overloading
+
+    
+    --class has multiple methods having same name but different in parameters
+    --used when multiple parameters can be used to perform the same action
+    -- if you different names for the same action it starts to get confusing as to what the       method does
+    --In java, Method Overloading is not possible by changing the return type of the method      only. if you want to change the return type you have to change the parameter types too
+    --Compile Time Error is better than Run Time Error. So, java compiler renders compiler time   error if you declare the same method having same parameters.
+    -- you can overload the java main method but it only takes string arguments
+       so the exeuction would choose the main method that has the string[] args paramaters
+
+left off at Method Overloading and Type Promotion
+
+
+
+
+
+
+
+
+notes
+--main() method  receives string array as arguments only
