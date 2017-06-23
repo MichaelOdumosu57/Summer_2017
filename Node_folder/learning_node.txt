@@ -1,0 +1,224 @@
+learning Node
+Node.js = Runtime Environment + JavaScript Library
+	
+	Node.js Features
+	
+		--Extremely fast: Node.js is built on Google Chrome's V8 JavaScript Engine,
+		--I/O is Asynchronous and Event Driven: All APIs of Node.js library are
+		asynchronous i.e. non-blocking. So a Node.js based server never waits for an API		 to return data.
+		--Single threaded: Node.js follows a single threaded model with event looping.
+		--Highly Scalable: Node.js is highly scalable because event mechanism helps the
+		server to respond in a non-blocking way.
+        --No buffering:  Node.js applications never buffer any data. These applications simply output the data in chunks.
+        --Open source:
+        --License: Node.js is released under the MIT license.
+
+    Node Program
+
+        node.js files must be .js files and to run a program
+            node [file].js
+
+        Node.js web-based Example
+            
+            Import required modules:
+            
+                var http = require("http");
+    
+            then
+            Create server:
+    
+                http.createServer(function (request, response) {
+                   response.writeHead(200, {'Content-Type': 'text/plain'});
+                   response.end('Hello World\n');
+                }).listen(8081);
+                console.log('Server running at http://127.0.0.1:8081/');
+    
+    
+            Read request and return response:
+                but here were just doing a console.log, javascript would help us here
+    
+            to get it going
+                type node [file].js
+                then go to http://127.0.0.1:8081 or the name of the computer: 8081 if you
+                are using a remote connection and "Hello World" should appear
+    
+    Node Console
+        
+        
+        console.log is the print statement in node
+        
+        console.log()
+            console.log('Hello JavaTpoint');
+
+            var x = 0
+            console.log("this is x" + x);
+    
+        console.error()
+            console.error(new Error('Hell! This is a wrong method.'));
+        
+        console.warn()
+            const name = 'John';
+            console.warn(`Don't mess with me ${name}! Don't mess with me!`);
+
+
+
+        --similar to .js console.log but not the same
+    
+    Node.js REPL
+
+        
+        REPL is this REPL enviornments
+        READ, EVAL, PRINT, LOOP
+
+        to start it just type node on cmd
+
+        ctrl + c	It is used to terminate the current command.
+        ctrl + d	It terminates the node repl.
+        up/down keys	It is used to see command history and modify previous commands.
+        tab keys	It specifies the list of current command.
+        .help	It specifies the list of all commands.
+        .break	It is used to exit from multi-line expressions.
+        .save filename	It saves current node repl session to a file.
+        .load filename	It is used to load file content in current node repl session.
+        
+        Node.js Simple expressions
+            follow the pemdas rule
+
+        Node.js variables
+            if u use var it would store the result
+            else it would store and print the result
+            > a= 5
+            5
+            > var b= 2
+            undefined
+            > a+b
+            7
+
+        Node.js Multiline expressions
+            >var x = 0
+            undefined
+            > do {
+            ... x++;
+            ... console.log("x: " + x);
+            ... } while ( x < 10 );
+            would print x : 1- 10 then undefined at the bottom
+
+
+Node.js Package Manager   (NPM!!)
+
+    --refer to info found in learning_npm
+    --It provides online repositories for node.js packages/modules which are searchable on search.nodejs.org also provides utility to install packages
+    --npm comes with node.js versions 0.6.3 and greater
+
+Node.js Command Line Options
+
+    	-v, --version	It is used to print node's version.
+    	-h, --help	It is used to print node command line options.
+    	-e, --eval "script"	another way to use node REPL
+    	-p, --print "script"	It is identical to -e but prints the result.
+    	-c, --check	Syntax check the script without executing.
+    	-i, --interactive	It opens the REPL even if stdin does not appear to be a terminal.
+    	-r, --require module	It is used to preload the specified module at startup. It follows require()'s module resolution rules. Module may be either a path to a file, or a node module name. basically repl a file that includes require
+                //deprecation means disapproval or error warning by node complier
+    	--no-deprecation	Silence deprecation warnings.
+    	--trace-deprecation	It is used to print stack traces for deprecations.
+    	--throw-deprecation	It throws errors for deprecations.
+    	--no-warnings	It silence all process warnings (including deprecations).
+    	--trace-warnings	It prints stack traces for process warnings (including deprecations).
+    	--trace-sync-io	It prints a stack trace whenever synchronous i/o is detected after the first turn of the event loop.
+    	--zero-fill-buffers	Automatically zero-fills all newly allocated buffer and slowbuffer instances.
+        --track-heap-objects	It tracks heap object allocations for heap snapshots.
+    	--prof-process	It processes V8 profiler output generated using the v8 option --prof.
+    	--V8-options	It prints V8 command line options.
+        --tls-cipher-list=list	It specifies an alternative default tls cipher list. (requires node.js to be built with crypto support. (default))
+    	--enable-fips	It enables fips-compliant crypto at startup. (requires node.js to be built with ./configure --openssl-fips)
+    	--force-fips	It forces fips-compliant crypto on startup. (cannot be disabled from script code.) (same requirements as --enable-fips)
+        --icu-data-dir=file	It specifies ICU data load path. (Overrides node_icu_data)
+
+Node.js Global Objects
+    --come automatically with any application that runs node
+
+    Node.js __dirname
+        
+        console.log(__dirname)
+        --prints current directory of file
+        
+    Node.js __filename
+        console.log(__filename);
+        -- prints out directory along with file
+
+    --console ,buffer, and timer are also global
+
+
+Node.js OS
+    --commads that interact with the OS
+os.arch()	                This method is used to fetch the operating system CPU architecture.
+os.cpus()                   This method is used to fetch an array of objects containing                                      information about each cpu/core installed: model, speed (in MHz),                                and times (an object containing the number of milliseconds the                                   cpu/core spent in: user, nice, sys, idle, and irq).
+os.endianness()	            This method returns the endianness of the cpu. Its possible values                               are 'BE' for big endian or 'LE' for little endian.
+os.freemem()	            This methods returns the amount of free system memory in bytes.
+os.homedir()	            This method returns the home directory of the current user.
+os.hostname()               This method is used to returns the hostname of the operating                                     system.
+os.loadavg()	            This method returns an array containing the 1, 5, and 15 minute                                  load averages. The load average is a time fraction taken by system                               activity, calculated by the operating system and expressed as a                                  fractional number.
+os.networkinterfaces()	    This method returns a list of network interfaces.
+os.platform()	            This method returns the operating system platform of the running                                 computer i.e.'darwin', 'win32','freebsd', 'linux', 'sunos' etc.
+os.release()	            This method returns the operating system release.
+os.tmpdir()	                This method returns the operating system's default directory for                                 temporary files.
+os.totalmem()	            This method returns the total amount of system memory in bytes.
+os.type()	                This method returns the operating system name. For example 'linux'                               on linux, 'darwin' on os x and 'windows_nt' on windows.
+os.uptime()	                This method returns the system uptime in seconds.
+os.userinfo([options])	    This method returns a subset of the password file entry for the                                  current effective user.
+
+Node.js Timer
+
+    setImmediate(): It is used to execute setImmediate.
+    
+     setInterval():
+        use
+        setInterval(function() {
+            [executable]
+            }, [interval in milliseconds] )
+        --its using a different counter to counter milliseconds so its not perfect
+
+        setTimeout():
+        use
+        setTimeout(function() {
+            console.log("setTimeout: Hey! 1000 millisecond completed!..");
+        }, 1000);
+
+    --replace set with clear in front all the methods they stop the loop for interval and cancel
+    the timeout for timeout but the set function has to be placed in an object which is a parameter needed for the clear function
+
+    var process = [set method] ([executable],[time number]);
+    [clear method](process);
+
+Node.js Errors
+
+    Standard JavaScript errors i.e. <EvalError>, <SyntaxError>, <RangeError>, <ReferenceError>, <TypeError>, <URIError> etc.
+    System errors
+    User-specified errors
+    Assertion errors
+
+Node.js DNS
+        
+    --The Node.js DNS module contains methods to get information of given hostname.
+    dns.getServers()
+    dns.setServers(servers)
+    dns.lookup(hostname[, options], callback)
+    dns.lookupService(address, port, callback)
+    dns.resolve(hostname[, rrtype], callback)
+    dns.resolve4(hostname, callback)
+    dns.resolve6(hostname, callback)
+    dns.resolveCname(hostname, callback)
+    dns.resolveMx(hostname, callback)
+    dns.resolveNs(hostname, callback)
+    dns.resolveSoa(hostname, callback)
+    dns.resolveSrv(hostname, callback)
+    dns.resolvePtr(hostname, callback)
+    dns.resolveTxt(hostname, callback)
+    dns.reverse(ip, callback)
+
+Node.js Net
+    for socket programming
+    --gotta match port for sucessful connection
+
+Node.js Crypto
