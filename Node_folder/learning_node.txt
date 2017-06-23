@@ -585,4 +585,83 @@ Node.js Callbacks
     files
     all callback files
 
-left off at Node.js Events
+Node.js Events
+    --node uses async functins to maintain sequentiality by using observer pattern
+    -- Node thread keeps an event loop and after the completion of any task, it fires the corresponding event which signals the event listener function to get executed.
+    
+    Event Driven Programming
+        --as soon as node starts the server it initiates and declares all objects and
+          waits for an event to occur
+
+    --main loop that listens for event and triggers a callback once events is detected
+    --callbacks are async events work by observer waiting for an event
+
+    use
+    // Import events module
+    var events = require('events');
+    // Create an eventEmitter object
+    var eventEmitter = new events.EventEmitter();
+
+    bind event handler with an event
+        eventEmitter.on('eventName', eventHandler);
+
+    fire an event
+        eventEmitter.emit('eventName');
+
+    refer to event_example.js
+
+    it makes a an object makes a reference string to be thrown, once it is caught event is executed
+    --if you emit without catching nothing seems to happen
+
+Node.js Punycode
+    --converts utf-8 unicode to ascii since host names only understand ascii
+    ex  mañana.com  not supported so xn--maana-pta.com instead
+    -- comes with node 0.6.2 and later
+    -- to install npm install punycode
+    import
+        punycode = require('punycode');
+    
+    methods
+        punycode.decode([string}); decodes an ascii string to unicode
+        
+        punycode.encode([sting]); turns unicode to ascii
+
+        punycode.toASCII([domain]); turns non-ascii to ascii
+
+        punycode.toUnicode([domain])
+
+Node.js TTY
+    import
+    var tty = require('tty');
+    to see if node is running in terminal
+        node -p -e "Boolean(process.stdout.isTTY)"
+
+    Class readstream
+        use process.stdin in replace of rs when inside tty
+        rs.isRaw: It is a Boolean that is initialized to false. It specifies the current "raw" state of the tty.ReadStream instance.
+
+        rs.setRawMode(mode): It should be true or false. It is used to set the properties of the tty.ReadStream to act either as a raw device or default. isRaw will be set to the resulting mode.
+    
+    Class writestream
+        Resize event: This event is used when either of the columns or rows properties has changed.
+    
+        process.stdout.on('resize', () => {
+        console.log('screen size has changed!');
+        console.log(`${process.stdout.columns}x${process.stdout.rows}`);
+            });
+
+        refer to the tty_files
+
+Node.js Web Module
+    uses web severs basically a machine that returns what u get when you type something into a search bar
+
+    Web Application Architecture
+        Client Layer: The Client layer contains web browsers, mobile browsers or applications which can make HTTP request to the web server.
+        Server Layer: The Server layer contains Web server which can intercepts the request made by clients and pass them the response.
+        Business Layer: The business layer contains application server which is utilized by web server to do required processing. This layer interacts with data layer via data base or some external programs.
+        Data Layer: The Data layer contains databases or any source of data.
+        --when starting the server, make sure there is an index.html file in there so you
+        can see it and it wont throw an erro
+
+        files
+        server.js

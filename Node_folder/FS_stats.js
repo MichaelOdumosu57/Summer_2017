@@ -1,6 +1,6 @@
 var fs = require("fs");
 console.log("Going to get file info!");
-fs.stat('../../My_Computer.zip', function (err, stats) {
+fs.stat('../../../My_Computer.zip', function (err, stats) {
 if (err) {
   return console.error(err);
   }
