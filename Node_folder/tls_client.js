@@ -2,7 +2,7 @@ tls = require('tls');
 function connected(stream) {  
     if (stream) {  
        // socket connected  
-      stream.write("GET / HTTP/1.0\n\rHost: ualbanyasist.github.io:443\n\r\n\r");    
+      stream.write("GET / HTTP/1.0\n\rHost: javatpoint.com:443\n\r\n\r");    
     } else {  
       console.log("Connection failed");  
     }  
@@ -10,7 +10,7 @@ function connected(stream) {
  // needed to keep socket variable in scope  
 var dummy = this;  
  // try to connect to the server  
-dummy.socket = tls.connect(443, 'ualbanyasist.github.io', function() {  
+dummy.socket = tls.connect(443, 'javatpoint.com', function() {  
    // callback called only after successful socket connection  
    dummy.connected = true;  
    if (dummy.socket.authorized) {  

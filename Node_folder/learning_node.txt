@@ -147,7 +147,7 @@ Node.js Global Objects
         console.log(__filename);
         -- prints out directory along with file
 
-    --console ,buffer, and timer are also global
+    --console ,buffer, and timer , processare also global
 
 
 Node.js OS
@@ -222,3 +222,367 @@ Node.js Net
     --gotta match port for sucessful connection
 
 Node.js Crypto
+    --The Node.js Crypto module supports cryptograpy
+    --based on cryptographic functionality that includes a set of wrappers for open SSL's hash HMAC, cipher, decipher, sign and verify functions.
+    --HMAC stands for Hash-based Message Authentication Code. It is a process for applying a hash algorithm to both data and a secret key that results in a single final hash.
+    --hmac, cipher and decipher was used in the hmac functions
+
+Node.js TLS/SSL
+    TLS stands for Transport Layer Security
+    next in line after SSL (Secure Sockets Layer)
+    
+    public-key cryptography
+    
+    WHAT YOU NEED TO KNOW
+    BASICALLY THE CLIENT AND THE SERVER HAS EACH HAS A PRIVATE KEY AND A PUBLIC KEY. EVERYONE KNOWS ABOUT THE PUBLIC KEY BUT ONLY THE HOST KNOWS ABOUT THE PUBLIC KEY
+
+    TO ENCRYPT A MESSAGE THE SENDER REQUIRES ITS PRIVATE KEY AND THE RECIPIENT PUBLIC KEY
+    
+    TO DECRPYT A MESSAGE THE RECIPIENT NEEDS THE SENDERS PRIVATE KEY
+
+    use require('tls'); to access
+
+    to generate a private key
+        openssl genrsa -out ryans-key.pem 1024
+    
+    all servers and some clients need a certificate
+    certificate - public keys signed by certificate authority or by self
+    to get create a CSR ( "Certificate Signing Request" ) file
+    
+        openssl req -new -key ryans-key.pem -out ryans-csr.pem
+        fill out the information blank spaces left with .
+        you will have a ryans-csr.pem fileand and a ryans-key.pem file
+
+    to create self-signed certificate
+        openssl x509 -req -in ryans-csr.pem -signkey ryans-key.pem -out ryans-cert.pem
+        
+    099777b3e4b6153688c0ae3c70367b8b307591a2eb66e208484c43bb477a4e0389b20698bfa7938df835bf74afe2abacd9db038e3ec2575215610089689adbac1218d55b275527c95f03f7a368e20966497499bbd669d558b0ea0771f3f73c53072f37ad1ec71df2fbc4fd25a7c51a9bec46568bbde4be1a341b24e02ed398649ff6f8e1ba7058d5525a1fb4941b31f1
+
+Node.js Debugger
+    --Node.js provides a simple TCP based protocol and built-in debugging client.
+    to use
+        node debug [script.js | -e "script" | <host>:<port>]
+    --if you make an error it will throw an  error
+
+Node.js Process
+    Node.js provides the facility to get process information
+    global, instance of event emitter
+
+    arch	    returns process architecture: 'arm', 'ia32', or 'x64'
+    args	    returns commands line arguments as an array
+    env	        returns user environment
+    pid	        returns process id of the process
+    platform	returns platform of the process: 'darwin', 'freebsd', 'linux', 'sunos' or 'win32'
+    release	    returns the metadata for the current node release
+    version	    returns the node version
+    versions	returns the node version and its dependencies
+    
+    call by
+    console.log(`Process [property]: ${[process].[property]}`);
+    
+    Node.js Process Functions
+        Function	                    Description
+
+        cwd()	                        returns path of current working directory
+        hrtime()	                    returns the current high-resolution real time in a                                       [seconds, nanoseconds] array
+        memoryUsage()	                returns an object having information of memory usage.
+        process.kill(pid[, signal])	    is used to kill the given pid.
+        uptime()	                    returns the Node.js process uptime in seconds.
+        --uptime is how long a process has been running
+
+Node.js Child Process
+
+    Node.js child_process.exec() method
+    --The child_process.exec() method runs a command in a console and buffers the output.
+    
+    use
+        child_process.exec(command[, options], callback)
+        1) command:  It specifies the command to run, with space-separated arguments.
+        
+        2) options:  It may contain one or more of the following options:
+        
+        cwd:         It specifies the current working directory of the child process.
+        env:         It specifies environment key-value pairs.
+        encoding:    String (Default: 'utf8')
+        shell:       It specifies string Shell to execute the command with (Default: '/bin/sh' on              UNIX, 'cmd.exe' on Windows, The shell should understand the -c switch on                 UNIX or /s /c on Windows. On Windows, command line parsing should be                     compatible with cmd.exe.)
+        timeout:     Number (Default: 0)
+        maxBuffer:   Number (Default: 200*1024)
+        killSignal:  String (Default: 'SIGTERM')
+        uid Number:  Sets the user identity of the process.
+        gid Number:  Sets the group identity of the process.
+        
+        callback:    The callback function specifies three arguments error, stdout and stderr                 which is called with the following output when process terminates.
+
+        --you need an executable to work with when using the child_process functions
+        --to use an executable put ./ in front to let linux OS know that its execuatable
+    
+    files support.js and master.js
+    run master.js
+
+    Node.js child_process.spawn() method
+        --The child_process.spawn() method launches a new process with a given command. This method returns streams (stdout & stderr) and it is generally used when the process returns large amount of data.
+        use
+            child_process.spawn(command[, args][, options])
+            1) command:         It specifies the command to run.
+            
+            2) args:            It specifies an array List of string arguments.
+            
+            3) options:         It may contain one or more of the following options:
+            
+            cwd:                It specifies the current working directory of the child process.
+            env:                It specifies environment key-value pairs.
+            stdio:              Array|String Child's stdio configuration
+            customFds:          Array Deprecated File descriptors for the child to use for stdio
+            detached Boolean :  The child will be a process group leader
+            uid Number:         Sets the user identity of the process.
+            gid Number:         Sets the group identity of the process.
+
+            files:
+            support.js and other_master.js
+            run other_master.js
+
+    child_process.fork() method
+        --The child_process.fork method is a special case of the spawn() to create Node processes. This method returns object with a built-in communication channel in addition to having all the methods in a normal ChildProcess instance.
+        use
+            child_process.fork(modulePath[, args][, options])
+            1) modulePath: This is a string specifies the module to run in the child.
+            
+            2) args: It specifies an array List of string arguments.
+            
+            3) options: It may contain one or more of the following options:
+            
+            cwd:        It specifies the current working directory of the child process.
+            env:        It specifies environment key-value pairs.
+            execPath:   This is a string Executable used to create the child process.
+            execArgv:   It specifies Array List of string arguments passed to the executable                   (Default: process.execArgv).
+            silent:     It specifies Boolean If true, stdin, stdout, and stderr of the child will             be piped to the parent, otherwise they will be inherited from the                    parent, see the "pipe" and "inherit" options for spawn()'s stdio for                 more details (default is false).
+            uid Number: Sets the user identity of the process.
+            gid Number: Sets the group identity of the process.
+
+            files:
+            support.js and other_master_fork.js
+            run other_master_fork.js
+            --shows more data when run in repl
+
+Node.js Buffers
+    --used to store raw data
+    Node.js Creating Buffers
+        Create an uninitiated buffer:
+        use
+            var buf = new Buffer(10);
+        Create a buffer from array:
+            var buf = new Buffer([10, 20, 30, 40, 50]);
+        Create a buffer from string:
+            var buf = new Buffer("Simply Easy Learning", "utf-8");
+
+    Node.js Writing to buffers
+        use
+            buf.write(string[, offset][, length][, encoding])
+
+
+            string: It specifies the string data to be written to buffer.
+    
+            offset: It specifies the index of the buffer to start writing at. Its default value is 0.
+
+            length: It specifies the number of bytes to write. Defaults to buffer.length
+
+            encoding: Encoding to use. 'utf8' is the default encoding.
+
+            Return values from writing buffers:
+
+            This method is used to return number of octets written. In the case of space shortage for buffer to fit the entire string, it will write a part of the string.
+
+     Reading from buffers
+        use
+            buf.toString([encoding][, start][, end])
+
+                encoding: It specifies encoding to use. 'utf8' is the default encoding
+                
+                start: It specifies beginning index to start reading, defaults to 0.
+                
+                end: It specifies end index to end reading, defaults is complete buffer.
+                
+                Return values reading from buffers:
+
+                This method decodes and returns a string from buffer data encoded using the specified character set encoding.
+
+Node.js Streams
+    streams are objects that make it easier for u to read and write from another place
+
+    Readable: This stream is used for read operations.
+    Writable: This stream is used for write operations.
+    Duplex: This stream can be used for both read and write operations.
+    Transform: It is type of duplex stream where the output is computed according to input.
+
+    Event Emitter
+        Data:This event is fired when there is data available to read.
+        End:This event is fired when there is no more data available to read.
+        Error: This event is fired when there is any error receiving or writing data.
+        Finish:This event is fired when all data has been flushed to underlying system.
+
+    Reading from stream
+        files
+        stream_input.txt
+        read_file.js
+        run read_file.js
+
+    Writing to stream
+        files
+        stream_output.txt
+        write_to_file.js
+        run write_to_file.js
+
+    Piping Streams
+        send stuff from an input file to an output file
+        files
+        pipe_stream.js
+        
+    Chaining Streams
+        basically compress a stream
+        files
+        chain_stream.js
+
+    decompress streams
+        files
+        decompress.js
+
+Node.js File System (FS)
+    --In Node.js, file I/O is provided by simple wrappers around standard POSIX functions.
+    use
+
+    var fs = require("fs")
+    
+     FS Reading File
+     --Asynchronous methods take a last parameter as completion function callback
+     --never blocks program execution unlike sychronous
+    files
+    FS_read_file.txt
+    FS_read_file.js
+    
+    FS Open a file
+        use
+        fs.open(path, flags[, mode], callback)
+
+        path: This is a string having file name including path.
+        
+        flags: Flag specifies the behavior of the file to be opened. All possible values have been mentioned below.
+        
+        mode: This sets the file mode (permission and sticky bits), but only if the file was created. It defaults to 0666, readable and writeable.
+        
+        callback: This is the callback function which gets two arguments (err, fd).
+    
+    Flags for Read/Write
+        r	open file for reading. an exception occurs if the file does     not exist.
+        r+	open file for reading and writing. an exception occurs if      the file does not exist.
+        rs	open file for reading in synchronous mode.
+        rs+	open file for reading and writing, telling the os to open      it synchronously. see notes for 'rs' about using this with     caution.
+        w	open file for writing. the file is created (if it does not     exist) or truncated (if it exists).
+        wx	like 'w' but fails if path exists.
+        w+	open file for reading and writing. the file is created (if     it does not exist) or truncated (if it exists).
+        wx+	like 'w+' but fails if path exists.
+        a	open file for appending. the file is created if it does not     exist.
+        ax	like 'a' but fails if path exists.
+        a+	open file for reading and appending. the file is created if     it does not exist.
+        ax+	open file for reading and appending. the file is created if     it does not exist
+        files
+            FS_open.js
+
+    File Information Method
+        use
+        fs.stat(path, callback)
+        Path: This is string having file name including path.
+
+        Callback: This is the callback function which gets two arguments (err, stats) where stats is an object of fs.Stats type.
+
+        stats.isFile()	           returns true if file type of a                                 simple file.
+        stats.isDirectory()	       returns true if file type of a                                 directory.
+        stats.isblockdevice()	   returns true if file type of a block                             device.
+        stats.ischaracterdevice()  returns true if file type of a                                 character device.
+        stats.issymboliclink()	   returns true if file type of a s                               symbolic  link.
+        stats.isfifo()	           returns true if file type of a fifo.
+        stats.issocket()	       returns true if file type of                                    asocket.
+
+Node.js Path
+    use
+    var path =  require ("path")
+
+	Method
+    Description
+
+	path.normalize(p)
+    It is used to normalize a string path, taking care of '..' and '.' parts.
+	path.join([path1][, path2][, ...])
+    It is used to join all arguments together and normalize the resulting path.
+	path.resolve([from ...], to)
+    It is used to resolve an absolute path.
+	path.isabsolute(path)
+    It determines whether path is an absolute path. an absolute path will always resolve to the same location, regardless of the working directory.
+    path.relative(from, to)
+    It is used to solve the relative path from "from" to "to".
+	path.dirname(p)
+    It return the directory name of a path. It is similar to the unix dirname command
+	path.basename(p[, ext])
+    It returns the last portion of a path. It is similar to the Unix basename command.
+	path.extname(p)
+    It returns the extension of the path, from the last '.' to end of string in the last portion of the path. if there is no '.' in the last portion of the path or the first character of it is '.', then it returns an empty string.
+	path.parse(pathstring)
+    It returns an object from a path string.
+    path.format(pathobject)
+    It returns a path string from an object, the opposite of path.parse above.
+
+Node.js StringDecoder
+    --buffer.toString() but provides extra support to UTF.
+    import
+    const StringDecoder = require('string_decoder').StringDecoder;
+
+    two methods
+    decoder.write(buffer)	It is used to return the decoded string.
+    decoder.end()	        It is used to return trailing bytes, if any                         left in the buffer.
+    refer to stringdeecoder_example1.js
+
+Node.js Query String
+    -- It can be used to convert query string into JSON object and vice-versa.
+    --deals with query string
+    methods
+
+    querystring.parse('[key]=[value]&...')
+    converts query string into JSON object.
+
+    querystring.stringify([key]:[value],...)
+    converts JSON object into query string.
+
+Node.js ZLIB
+    for zipping properties
+    import
+    const zlib = require('zlib');
+
+    zipping
+    files
+    zlib_zip.js
+
+Node.js Assertion Testing
+    --simple way to write test
+    --provides no feedback unless test fails
+    --assert is not a testing framework and cannot be used as general purpose assertion library.
+    --it is really that runtime error thrower where it is correct but not the desired result
+    use
+    var assert = require('assert');
+
+
+
+Node.js V8
+    --V8 is an open source JavaScript engine developed by the Chromium project for the Google Chrome web browser. It is written in C++. Now a days, it is used in many projects such as Couchbase, MongoDB and Node.js.
+    import
+    const v8 = require('v8');
+    v8.getHeapStatistics()
+    v8.getHeapSpaceStatistics()
+    --Currently, by default v8 has a memory limit of 512mb on 32-bit and 1gb on 64-bit systems. You can raise the limit by setting --max-old-space-size to a maximum of ~1gb for 32-bit and ~1.7gb for 64-bit systems. But it is recommended to split your single process into several workers if you are hitting memory limits.
+
+Node.js Callbacks
+    --Callback is an asynchronous equivalent for a function. It is called at the completion of each task. In Node.js, callbacks are generally used. All APIs of Node are written in a way to supports callbacks. For example: when a function start reading file, it returns the control to execution environment immediately so that the next instruction can be executed.
+    --In Node.js, once file I/O is complete, it will call the callback function. So there is no blocking or wait for File I/O. This makes Node.js highly scalable, as it can process high number of request without waiting for any function to return result.
+    --basically functions complete at differnt times, callback controls which function is done first
+    files
+    all callback files
+
+left off at Node.js Events
