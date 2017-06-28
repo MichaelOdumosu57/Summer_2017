@@ -117,23 +117,23 @@ Node.js Command Line Options
     	-e, --eval "script"	another way to use node REPL
     	-p, --print "script"	It is identical to -e but prints the result.
     	-c, --check	Syntax check the script without executing.
-    	-i, --interactive	It opens the REPL even if stdin does not appear to be a terminal.
-    	-r, --require module	It is used to preload the specified module at startup. It follows require()'s module resolution rules. Module may be either a path to a file, or a node module name. basically repl a file that includes require
-                //deprecation means disapproval or error warning by node complier
+    	-i, --interactive	It opens the REPL even if stdin does not appear to be a                          terminal.
+    	-r, --require module	It is used to preload the specified module at startup. It                         follows require()'s module resolution rules. Module may                          be either a path to a file, or a node module name.                               basically repl a file that includes require
+        //deprecation means disapproval or error warning by node complier
     	--no-deprecation	Silence deprecation warnings.
     	--trace-deprecation	It is used to print stack traces for deprecations.
     	--throw-deprecation	It throws errors for deprecations.
-    	--no-warnings	It silence all process warnings (including deprecations).
+    	--no-warnings	    It silence all process warnings (including deprecations).
     	--trace-warnings	It prints stack traces for process warnings (including deprecations).
-    	--trace-sync-io	It prints a stack trace whenever synchronous i/o is detected after the first turn of the event loop.
-    	--zero-fill-buffers	Automatically zero-fills all newly allocated buffer and slowbuffer instances.
+    	--trace-sync-io	    It prints a stack trace whenever synchronous i/o is detected                     after the first turn of the event loop.
+    	--zero-fill-buffers	Automatically zero-fills all newly allocated buffer and                          slowbuffer instances.
         --track-heap-objects	It tracks heap object allocations for heap snapshots.
-    	--prof-process	It processes V8 profiler output generated using the v8 option --prof.
-    	--V8-options	It prints V8 command line options.
-        --tls-cipher-list=list	It specifies an alternative default tls cipher list. (requires node.js to be built with crypto support. (default))
-    	--enable-fips	It enables fips-compliant crypto at startup. (requires node.js to be built with ./configure --openssl-fips)
-    	--force-fips	It forces fips-compliant crypto on startup. (cannot be disabled from script code.) (same requirements as --enable-fips)
-        --icu-data-dir=file	It specifies ICU data load path. (Overrides node_icu_data)
+    	--prof-process  	It processes V8 profiler output generated using the v8 option                     --prof.
+    	--V8-options	    It prints V8 command line options.
+        --tls-cipher-list=list	It specifies an alternative default tls cipher list.                             (requires node.js to be built with crypto support.                               (default))
+    	--enable-fips	        It enables fips-compliant crypto at startup. (requires                           node.js to be built with ./configure --openssl-fips)
+    	--force-fips	        It forces fips-compliant crypto on startup. (cannot be                           disabled from script code.) (same requirements as                                --enable-fips)
+        --icu-data-dir=file	    It specifies ICU data load path. (Overrides                                      node_icu_data)
 
 Node.js Global Objects
     --come automatically with any application that runs node
@@ -149,24 +149,26 @@ Node.js Global Objects
 
     --console ,buffer, and timer , processare also global
 
+    -- cant use in REPL only use in files
+
 
 Node.js OS
     --commads that interact with the OS
-os.arch()	                This method is used to fetch the operating system CPU architecture.
-os.cpus()                   This method is used to fetch an array of objects containing                                      information about each cpu/core installed: model, speed (in MHz),                                and times (an object containing the number of milliseconds the                                   cpu/core spent in: user, nice, sys, idle, and irq).
-os.endianness()	            This method returns the endianness of the cpu. Its possible values                               are 'BE' for big endian or 'LE' for little endian.
-os.freemem()	            This methods returns the amount of free system memory in bytes.
+os.arch()	                This method is used to fetch the operating system CPU                                    architecture.
+os.cpus()                   This method is used to fetch an array of objects containing                              information about each cpu/core installed: model, speed (in                              MHz),  and times (an object containing the number of                                     milliseconds the cpu/core spent in: user, nice, sys, idle,                               and irq).
+os.endianness()	            This method returns the endianness of the cpu. Its possible                              values are 'BE' for big endian or 'LE' for little endian.
+os.freemem()	            This methods returns the amount of free system memory in                                 bytes.
 os.homedir()	            This method returns the home directory of the current user.
-os.hostname()               This method is used to returns the hostname of the operating                                     system.
-os.loadavg()	            This method returns an array containing the 1, 5, and 15 minute                                  load averages. The load average is a time fraction taken by system                               activity, calculated by the operating system and expressed as a                                  fractional number.
+os.hostname()               This method is used to returns the hostname of the operating                             system.
+os.loadavg()	            This method returns an array containing the 1, 5, and 15                                 minute load averages. The load average is a time fraction                                taken by system activity, calculated by the operating system                             and expressed as a fractional number.
 os.networkinterfaces()	    This method returns a list of network interfaces.
-os.platform()	            This method returns the operating system platform of the running                                 computer i.e.'darwin', 'win32','freebsd', 'linux', 'sunos' etc.
+os.platform()	            This method returns the operating system platform of the                                 running  computer i.e.'darwin', 'win32','freebsd', 'linux',                              'sunos' etc.
 os.release()	            This method returns the operating system release.
-os.tmpdir()	                This method returns the operating system's default directory for                                 temporary files.
-os.totalmem()	            This method returns the total amount of system memory in bytes.
-os.type()	                This method returns the operating system name. For example 'linux'                               on linux, 'darwin' on os x and 'windows_nt' on windows.
+os.tmpdir()	                This method returns the operating system's default directory                             for temporary files.
+os.totalmem()	            This method returns the total amount of system memory in                                 bytes.
+os.type()	                This method returns the operating system name. For example                               'linux' on linux, 'darwin' on os x and 'windows_nt' on                                   windows.
 os.uptime()	                This method returns the system uptime in seconds.
-os.userinfo([options])	    This method returns a subset of the password file entry for the                                  current effective user.
+os.userinfo([options])	    This method returns a subset of the password file entry for                              the current effective user.
 
 Node.js Timer
 
@@ -314,7 +316,7 @@ Node.js Child Process
         callback:    The callback function specifies three arguments error, stdout and stderr                 which is called with the following output when process terminates.
 
         --you need an executable to work with when using the child_process functions
-        --to use an executable put ./ in front to let linux OS know that its execuatable
+        --to use an executable put ./ in front to let Ubuntu linux OS know that its execuatable
     
     files support.js and master.js
     run master.js
@@ -661,7 +663,7 @@ Node.js Web Module
         Business Layer: The business layer contains application server which is utilized by web server to do required processing. This layer interacts with data layer via data base or some external programs.
         Data Layer: The Data layer contains databases or any source of data.
         --when starting the server, make sure there is an index.html file in there so you
-        can see it and it wont throw an erro
+        can see it and it wont throw an errors
 
         files
         server.js

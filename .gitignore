@@ -2,6 +2,8 @@
 DS_Store
 *.out
 *.class
+child_process_example1.js
+my.bat 
 =======
 *.tar.gz
 
