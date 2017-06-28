@@ -1,2 +1,2 @@
 dir -la
-rmdir child
+

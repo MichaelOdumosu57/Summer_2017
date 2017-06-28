@@ -269,6 +269,7 @@ Node.js Debugger
 Node.js Process
     Node.js provides the facility to get process information
     global, instance of event emitter
+    all properties
 
     arch	    returns process architecture: 'arm', 'ia32', or 'x64'
     args	    returns commands line arguments as an array
@@ -317,6 +318,11 @@ Node.js Child Process
 
         --you need an executable to work with when using the child_process functions
         --to use an executable put ./ in front to let Ubuntu linux OS know that its execuatable
+
+        process argv arrau
+        0 -- where executable file is performing the proces ex /usr/bin/local/node
+        1 -- path of file being executed as process
+        2 -- the number for the process in order of execution ex: 1,2,3
     
     files support.js and master.js
     run master.js
@@ -503,6 +509,8 @@ Node.js File System (FS)
         stats.issymboliclink()	   returns true if file type of a s                               symbolic  link.
         stats.isfifo()	           returns true if file type of a fifo.
         stats.issocket()	       returns true if file type of                                    asocket.
+
+        -- stats.isblockdevice() or .isfifo() doesnt work on Ubuntu linux
 
 Node.js Path
     use
