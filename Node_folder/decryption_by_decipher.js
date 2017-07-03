@@ -1,6 +1,5 @@
 const crypto = require('crypto');  
 const decipher = crypto.createDecipher('aes192', 'a password');  
-var encrypted = '4ce3b761d58398aed30d5af898a0656a3174d9c7d7502e781e83cf6b9fb836d5';  
-var decrypted = decipher.update('4ce3b761d58398aed30d5af898a0656a3174d9c7d7502e781e83cf6b9fb836d5', 'hex', 'utf8');  
+var decrypted = decipher.update('617af324ebd1241ef92acd143ffca239829c9d0a3de35fea26', 'hex', 'utf8');  
 decrypted += decipher.final('utf8');  
 console.log(decrypted); 

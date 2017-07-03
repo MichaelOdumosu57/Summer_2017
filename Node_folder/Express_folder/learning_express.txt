@@ -115,21 +115,21 @@ Express.js Response Object
         res.format(object)
             performs content negotiation on the Accept HTTP header on the request object, when present.
 
-res.format({
-  'text/plain': function(){
-    res.send('hey');
-  },
- 'text/html': function(){
-    res.send('hey');
-  },
-  'application/json': function(){
-    res.send({ message: 'hey' });
-  },
- 'default': function() {
-    // log the request and respond with 406
-    res.status(406).send('Not Acceptable');
-  }
-});
+            res.format({
+              'text/plain': function(){
+                res.send('hey');
+              },
+             'text/html': function(){
+                res.send('hey');
+              },
+              'application/json': function(){
+                res.send({ message: 'hey' });
+              },
+             'default': function() {
+                // log the request and respond with 406
+                res.status(406).send('Not Acceptable');
+              }
+            });
 
         
         res.get([field])
@@ -209,3 +209,13 @@ res.format({
             res.type('json');               // => 'application/json'
             res.type('application/json');   // => 'application/json'
             res.type('png');                // => image/png:
+
+
+Express.js GET Request
+    get for small amounts of data
+    post for large amounts of data that goes into the body
+
+    --make sure that in the code you have correct port, hostname
+        (127.0.0.1) and html file
+        for the express app make sure you /[app] without the js extension to properly
+        refer to the app
