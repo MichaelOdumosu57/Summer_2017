@@ -217,5 +217,53 @@ Express.js GET Request
 
     --make sure that in the code you have correct port, hostname
         (127.0.0.1) and html file
-        for the express app make sure you /[app] without the js extension to properly
-        refer to the app
+        for the express app make sure you /[app] without the js extension to pro	perly refer to the app
+
+	Express.js POST
+        -- for big amounts of data to be sent in the body
+	    -- ask why is it not working
+
+
+    
+Express.js Routing
+    --all about how an app responds to a client
+    cool things
+    file: routing/routing_example.js
+    
+    --when the page is opened the first thing that pops us is the first sent response to from the app
+    --when you type in the given directories associated with the app commands, the app will do what is commanded
+    -- if you do [string] * [string] any phrase that has the strings on both ends will return a response from the app
+    
+
+Express.js Cookies Management
+    
+    to use
+        var express = require('express');
+        var cookieParser = require('cookie-parser');
+        var app = express();
+        app.use(cookieParser());
+
+    to set a cookies, define a route where the app will hold the cookies
+
+        app.get('/cookie',function(req, res){
+             res.cookie('cookie_name' , 'cookie_value').send('Cookie is set');
+        });
+        app.get('/', function(req, res) {
+          console.log("Cookies :  ", req.cookies);
+        });
+        ~
+    folder cookies
+        --when working with an app remotely it will send additional {"_ga":"GA1.2.1271013975.1498494408","io":"HFvFSRnC48XAtuB5AAIX", info
+        try to parse that out
+
+
+        --I do not exactly know how to parse off uneeded code
+
+
+Express.js  File Upload
+    
+    --you need every in that jtp file upload in order to work
+
+
+left off Express.js Middleware
+--for some reason express will not respond to post or delete and there are several more commads express will not work with, ask to find out what is going on
