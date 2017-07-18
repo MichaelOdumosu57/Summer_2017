@@ -1,3 +1,4 @@
+
 learning express
     --Express is a fast, assertive, essential,asynchronus and moderate web framework of Node.js. You can assume express as a layer built on the top of the Node.js that helps manage a server and routes. It provides a robust set of features to develop web and mobile applications.
     
@@ -263,7 +264,89 @@ Express.js Cookies Management
 Express.js  File Upload
     
     --you need every in that jtp file upload in order to work
+    --for some reason express will not respond to post or delete and there are several more commads express will not work with, ask to find out what is going on
 
 
 left off Express.js Middleware
---for some reason express will not respond to post or delete and there are several more commads express will not work with, ask to find out what is going on
+    --for some reason express will not respond to post or delete and there are several more commads express will not work with, ask to find out what is going on
+    --comes in middle of things
+
+    --middleware basically controls the requrest respone cycle
+
+    --in a simple express app connections are not recorded
+    
+    to use
+        
+        app.use(function(req, res, next) {
+          console.log('%s %s', req.method, req.url);
+          next();
+        });
+
+
+Express.js Scaffolding
+    makes it easier for the app to specify how the data is used
+
+    Model-View-Controller (MVC) architectural pattern separates an application into three main components: the model, the view, and the controller. The ASP.NET MVC framework provides an alternative to the ASP.NET Web Forms pattern for creating Web applications.
+
+    npm install express-scaffold
+    npm install -g express-generator
+
+    basically you need a package from npm to do the specific task like d3 or geojson
+
+Express Template Engines
+
+    the concept CMS is based on
+
+        In the above template engines, pug (formerly known as jade) and mustache seems to be most popular choice. Pug is similar to Haml which uses whitespace. According to the template-benchmark, pug is 2x slower than Handlebars, EJS, Underscore. ECT seems to be the fastest. Many programmers like mustache template engine mostly because it is one of the simplest and versatile template engines.
+
+    template engines
+        Pug (formerly known as jade)
+        mustache
+        dust
+        atpl
+        eco
+        ect
+        ejs
+        haml
+        haml-coffee
+        handlebars
+        hogan
+        jazz
+        jqtpl
+        JUST
+        liquor
+        QEJS
+        swig
+        templayed
+        toffee
+        underscore
+        walrus
+        whiskers
+
+    use
+    
+        Views: It specifies a directory where the template files are located.
+        For example: app.set('views', './views').
+        
+        view engine: It specifies the template engine that you use. For example, to use the Pug template engine: app.set('view engine', 'pug').
+
+    use pug template engine
+        --pug template written inside .pug file
+        -- all .pug files must in views folder in the root folder
+        --you can also set to another folder using views property in express. For example: app.set('views','MyViews')
+        --view engine is a module that you need installed specifically for pug
+        
+
+            var express = require('express');
+            var app = express();
+            var index = require('pug');
+            //set view engine
+            //app.set('views','MyViews')
+            app.set("view engine","pug")
+            app.get('/', function (req, res) {
+            res.render('index.pug',index);
+             res.render('index');
+            });
+            var server = app.listen(5000, function () {
+                console.log('Node server is running..');
+            });
