@@ -16,13 +16,18 @@ def crazy_nums(num)
 				end
 			arr.push(count)
 			end
+	
 		if by_five == 0
 			if spill == 1
 				arr.pop				
-				end
-			arr.push(count)
-			end		
+				
+			else
+				arr.push(count)
+			end
+		end	
+	
 		count = count + 1
+		spill = 0
 		end
 puts(arr)
 end
