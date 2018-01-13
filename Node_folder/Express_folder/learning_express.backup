@@ -1,0 +1,269 @@
+learning express
+    --Express is a fast, assertive, essential,asynchronus and moderate web framework of Node.js. You can assume express as a layer built on the top of the Node.js that helps manage a server and routes. It provides a robust set of features to develop web and mobile applications.
+    
+    the files are referred to as apps, but have the .js extenion
+    
+    --there is a softlink named express in that folder to your business api, use require express when working with it even though you cannot see it
+
+Installing express.js
+    to express framework globally
+        npm install -g express
+    
+    to install express itself
+        npm install express --save
+
+    also install
+        npm install body-parser --save
+        npm install cookie-parser --save
+        npm install multer --save
+
+Express.js Request Object
+    --parameters for callback
+    --represent HTTP request and properties
+      use
+        app.get('/', function (req, res) {
+           // --
+        })
+    
+    Object properties
+    	req.app	        This is used to hold a reference to the instance of the express                   application that is using the middleware.
+    	req.baseurl	    It specifies the URL path on which a router instance was mounted.
+    	req.body	    It contains key-value pairs of data submitted in the request                     body. By default, it is undefined, and is populated when you use                        body-parsing middleware such as body-parser.
+    	req.cookies 	When we use cookie-parser middleware, this property is an object                  that contains cookies sent by the request.
+    	req.fresh	    It specifies that the request is "fresh." it is the opposite of                   req.stale.
+    	req.hostname	It contains the hostname from the "host" http header.
+    	req.ip	        It specifies the remote IP address of the request.
+    	req.ips	        When the trust proxy setting is true, this property contains an                   array of IP addresses specified in the ?x-forwarded-for? request                  header.
+    	req.originalurl	This property is much like req.url; however, it retains the                       original request URL, allowing you to rewrite req.url freely for                  internal routing purposes.
+    	req.params	    An object containing properties mapped to the named route                         ?parameters?. For example, if you have the route /user/:name, then                 the "name" property is available as req.params.name. This object                  defaults to {}.
+    	req.path	    It contains the path part of the request URL.
+    	req.protocol	The request protocol string, "http" or "https" when requested with                 TLS.
+    	req.query	    An object containing a property for each query string parameter in                 the route.
+    	req.route	    The currently-matched route, a string.
+        req.secure	    A Boolean that is true if a TLS connection is established.
+    
+        req.signedcookies	When using cookie-parser middleware, this property contains                       signed cookies sent by the request, unsigned and ready for                        use.
+    	req.stale	    It indicates whether the request is "stale," and is the opposite                  of req.fresh.
+    	req.subdomains	It represents an array of subdomains in the domain name of the                    request.
+    	req.xhr	        A Boolean value that is true if the request's "x-requested-with"                  header field is "xmlhttprequest", indicating that the request was                 issued by a client library such as jQuery
+
+Request Object Methods
+    
+    type = Content-type
+    req.accepts ([types])
+        if specified content types are acceptable
+        ex html, text
+        multiple request are made
+            [type]/[type]
+        
+    req.get(field)
+        returns specified HTTP request header field
+    
+    req.is(type)
+        This method returns true if the incoming request's "Content-Type" HTTP header field matches the MIME type specified by the type parameter.
+
+    req.param(name [, defaultValue])
+        this method is used to fetch the value of param name when present.
+
+    // ?name=sasha
+    req.param('name')
+    // => "sasha"
+    // POST name=sasha
+    req.param('name')
+
+
+
+Express.js Response Object
+    specfies http response sent by request app
+    --once you res.send() or res.redirect() or res.render(), you cannot do it again, otherwise, there will be uncaught error.
+
+    Response Object Properties
+        	res.app	            It holds a reference to the instance of the express                           application that is using the middleware.
+        	res.headersSent	    It is a Boolean property that indicates if the app sent                       HTTP headers for the response.
+        	res.locals	        It specifies an object that contains response local                           variables scoped to the request
+
+    Response Object Methods
+        
+        res.append(field [, value])
+            appends value to http response header field
+
+            res.append('Link', ['<http://localhost/>', '<http://localhost:3000/>']);
+            res.append('Warning', '199 Miscellaneous warning');
+
+        res.attachment([filename])
+            allows you to return a file along with the request
+
+        res.cookie(name, value [, options])
+            set a cookie name to a value which can be a string on an object converted to json
+
+            res.cookie('name', 'Aryan', { domain: '.xyz.com', path: '/admin', secure: true });
+            res.cookie('Section', { Names: [Aryan,Sushil,Priyanka] });
+            res.cookie('Cart', { items: [1,2,3] }, { maxAge: 900000 });
+        
+        res.clearCookie(name [, options])
+            clears the cookie
+
+        res.download([path,...]);
+            makes file an attachment and makes browser ask if you would like to download
+
+        res.end([data] [, encoding])
+            ends response process
+            res.end();
+            res.status(404).end();
+
+            
+        res.format(object)
+            performs content negotiation on the Accept HTTP header on the request object, when present.
+
+            res.format({
+              'text/plain': function(){
+                res.send('hey');
+              },
+             'text/html': function(){
+                res.send('hey');
+              },
+              'application/json': function(){
+                res.send({ message: 'hey' });
+              },
+             'default': function() {
+                // log the request and respond with 406
+                res.status(406).send('Not Acceptable');
+              }
+            });
+
+        
+        res.get([field])
+            provides header for http response header
+            res.get('Content-Type');
+        
+        res.json([body])
+            returns response in json format
+            res.json(null)
+            res.json({ name: 'ajeet' })
+
+        res.jsonp([body])
+            retunrs in json with jsonp support
+            res.jsonp(null)
+            res.jsonp({ name: 'ajeet' })
+
+        res.links(links)
+            This method populates the response?s Link HTTP header field by joining the links provided as properties of the parameter.
+
+            res.links({
+              next: 'http://api.rnd.com/users?page=5',
+              last: 'http://api.rnd.com/users?page=10'
+            });
+
+        res.location([path])
+            This method is used to set the response location HTTP header field based on the specified path parameter.
+            res.location('http://xyz.com');
+
+
+        res.redirect([status,] path)
+            This method redirects to the URL derived from the specified path, with specified HTTP status
+            res.redirect('http://example.com');
+
+        res.render(view [, locals] [, callback])
+            This method renders a view and sends the rendered HTML string to the client.
+            
+            // send the rendered view to the client
+            res.render('index');
+            // pass a local variable to the view
+            res.render('user', { name: 'aryan' }, function(err, html) {
+              // ...
+            });
+        
+        res.send([body])
+            sends stuff to client
+            res.send(new Buffer('whoop'));
+            res.send({ some: 'json' });
+            res.send('
+            .....some html
+            ');
+        
+        res.sendFile(path [, options] [, fn])
+            This method is used to transfer the file at the given path. It sets the Content-Type response HTTP header field based on the filename's extension.
+
+            res.sendFile(fileName, options, function (err) {
+                // ...
+            });
+
+        res.set(field [, value])
+            This method is used to set the response of HTTP header field to value.
+            res.set('Content-Type', 'text/plain');
+              
+            res.set({
+              'Content-Type': 'text/plain',
+              'Content-Length': '123',
+            })
+
+        res.status(code)
+            This method sets an HTTP status for the response.z
+            res.status(403).end();
+            res.status(400).send('Bad Request');
+
+        res.type(type)
+            This method sets the content-type HTTP header to the MIME type.
+            res.type('.html');              // => 'text/html'
+            res.type('html');               // => 'text/html'
+            res.type('json');               // => 'application/json'
+            res.type('application/json');   // => 'application/json'
+            res.type('png');                // => image/png:
+
+
+Express.js GET Request
+    get for small amounts of data
+    post for large amounts of data that goes into the body
+
+    --make sure that in the code you have correct port, hostname
+        (127.0.0.1) and html file
+        for the express app make sure you /[app] without the js extension to pro	perly refer to the app
+
+	Express.js POST
+        -- for big amounts of data to be sent in the body
+	    -- ask why is it not working
+
+
+    
+Express.js Routing
+    --all about how an app responds to a client
+    cool things
+    file: routing/routing_example.js
+    
+    --when the page is opened the first thing that pops us is the first sent response to from the app
+    --when you type in the given directories associated with the app commands, the app will do what is commanded
+    -- if you do [string] * [string] any phrase that has the strings on both ends will return a response from the app
+    
+
+Express.js Cookies Management
+    
+    to use
+        var express = require('express');
+        var cookieParser = require('cookie-parser');
+        var app = express();
+        app.use(cookieParser());
+
+    to set a cookies, define a route where the app will hold the cookies
+
+        app.get('/cookie',function(req, res){
+             res.cookie('cookie_name' , 'cookie_value').send('Cookie is set');
+        });
+        app.get('/', function(req, res) {
+          console.log("Cookies :  ", req.cookies);
+        });
+        ~
+    folder cookies
+        --when working with an app remotely it will send additional {"_ga":"GA1.2.1271013975.1498494408","io":"HFvFSRnC48XAtuB5AAIX", info
+        try to parse that out
+
+
+        --I do not exactly know how to parse off uneeded code
+
+
+Express.js  File Upload
+    
+    --you need every in that jtp file upload in order to work
+
+
+left off Express.js Middleware
+--for some reason express will not respond to post or delete and there are several more commads express will not work with, ask to find out what is going on
