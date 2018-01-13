@@ -63,6 +63,9 @@ Node.js = Runtime Environment + JavaScript Library
 
 
         --similar to .js console.log but not the same
+
+    files:console_example1.js
+          console_example2.js
     
     Node.js REPL
 
@@ -170,6 +173,8 @@ os.type()	                This method returns the operating system name. For exa
 os.uptime()	                This method returns the system uptime in seconds.
 os.userinfo([options])	    This method returns a subset of the password file entry for                              the current effective user.
 
+    files: os_example1.js
+           os_example2.js
 Node.js Timer
 
     setImmediate(): It is used to execute setImmediate.
@@ -192,6 +197,13 @@ Node.js Timer
 
     var process = [set method] ([executable],[time number]);
     [clear method](process);
+
+    clearImmediate(immediateObject): It is used to stop an immediateObject, as created by setImmediate
+    clearInterval(intervalObject): It is used to stop an intervalObject, as created by setInterval
+    clearTimeout(timeoutObject): It prevents a timeoutObject, as created by setTimeout
+
+    file: timer1.js
+          timer2.js
 
 Node.js Errors
 
@@ -219,15 +231,25 @@ Node.js DNS
     dns.resolveTxt(hostname, callback)
     dns.reverse(ip, callback)
 
+    files: dns_example1.js
+           dns_example2.js
+
 Node.js Net
     for socket programming
     --gotta match port for sucessful connection
+
+    files: net_client.js
+           net_server.js
 
 Node.js Crypto
     --The Node.js Crypto module supports cryptograpy
     --based on cryptographic functionality that includes a set of wrappers for open SSL's hash HMAC, cipher, decipher, sign and verify functions.
     --HMAC stands for Hash-based Message Authentication Code. It is a process for applying a hash algorithm to both data and a secret key that results in a single final hash.
     --hmac, cipher and decipher was used in the hmac functions
+
+    files:hash_and_HMAC.js
+         cipher_example.js
+         decryption_by_decipher.js
 
 Node.js TLS/SSL
     TLS stands for Transport Layer Security
@@ -236,7 +258,7 @@ Node.js TLS/SSL
     public-key cryptography
     
     WHAT YOU NEED TO KNOW
-    BASICALLY THE CLIENT AND THE SERVER HAS EACH HAS A PRIVATE KEY AND A PUBLIC KEY. EVERYONE KNOWS ABOUT THE PUBLIC KEY BUT ONLY THE HOST KNOWS ABOUT THE PUBLIC KEY
+    BASICALLY THE CLIENT AND THE SERVER HAS EACH HAS A PRIVATE KEY AND A PUBLIC KEY. EVERYONE KNOWS ABOUT THE PUBLIC KEY BUT ONLY THE HOST KNOWS ABOUT THE PRIVATE KEY
 
     TO ENCRYPT A MESSAGE THE SENDER REQUIRES ITS PRIVATE KEY AND THE RECIPIENT PUBLIC KEY
     
@@ -259,6 +281,8 @@ Node.js TLS/SSL
         openssl x509 -req -in ryans-csr.pem -signkey ryans-key.pem -out ryans-cert.pem
         
     099777b3e4b6153688c0ae3c70367b8b307591a2eb66e208484c43bb477a4e0389b20698bfa7938df835bf74afe2abacd9db038e3ec2575215610089689adbac1218d55b275527c95f03f7a368e20966497499bbd669d558b0ea0771f3f73c53072f37ad1ec71df2fbc4fd25a7c51a9bec46568bbde4be1a341b24e02ed398649ff6f8e1ba7058d5525a1fb4941b31f1
+
+    file: tls_client.js
 
 Node.js Debugger
     --Node.js provides a simple TCP based protocol and built-in debugging client.
@@ -293,6 +317,10 @@ Node.js Process
         uptime()	                    returns the Node.js process uptime in seconds.
         --uptime is how long a process has been running
 
+    files process_example1.js
+          process_example2.js
+          process_example3.js
+
 Node.js Child Process
 
     Node.js child_process.exec() method
@@ -319,7 +347,7 @@ Node.js Child Process
         --you need an executable to work with when using the child_process functions
         --to use an executable put ./ in front to let Ubuntu linux OS know that its execuatable
 
-        process argv arrau
+        process argv array
         0 -- where executable file is performing the proces ex /usr/bin/local/node
         1 -- path of file being executed as process
         2 -- the number for the process in order of execution ex: 1,2,3
@@ -414,6 +442,9 @@ Node.js Buffers
 
                 This method decodes and returns a string from buffer data encoded using the specified character set encoding.
 
+    files: read_buffer.js
+           buffer_write.js
+
 Node.js Streams
     streams are objects that make it easier for u to read and write from another place
 
@@ -444,6 +475,8 @@ Node.js Streams
         send stuff from an input file to an output file
         files
         pipe_stream.js
+        pipe_stream_output.txt
+        if you pipe to a to a file with data it will overwrite it
         
     Chaining Streams
         basically compress a stream
@@ -512,6 +545,8 @@ Node.js File System (FS)
 
         -- stats.isblockdevice() or .isfifo() doesnt work on Ubuntu linux
 
+        file: FS_stats.js
+
 Node.js Path
     use
     var path =  require ("path")
@@ -540,6 +575,8 @@ Node.js Path
     path.format(pathobject)
     It returns a path string from an object, the opposite of path.parse above.
 
+    file :path_example.js
+
 Node.js StringDecoder
     --buffer.toString() but provides extra support to UTF.
     import
@@ -561,6 +598,9 @@ Node.js Query String
     querystring.stringify([key]:[value],...)
     converts JSON object into query string.
 
+    files: query_to_JSON.js
+           JSON_to_query.js
+
 Node.js ZLIB
     for zipping properties
     import
@@ -577,7 +617,8 @@ Node.js Assertion Testing
     --it is really that runtime error thrower where it is correct but not the desired result
     use
     var assert = require('assert');
-
+    
+    file: assert_example1.js
 
 
 Node.js V8
@@ -587,6 +628,9 @@ Node.js V8
     v8.getHeapStatistics()
     v8.getHeapSpaceStatistics()
     --Currently, by default v8 has a memory limit of 512mb on 32-bit and 1gb on 64-bit systems. You can raise the limit by setting --max-old-space-size to a maximum of ~1gb for 32-bit and ~1.7gb for 64-bit systems. But it is recommended to split your single process into several workers if you are hitting memory limits.
+
+    files : v8_getHeapStatistics.js
+            v8_getHeapSpaceStatistics.js
 
 Node.js Callbacks
     --Callback is an asynchronous equivalent for a function. It is called at the completion of each task. In Node.js, callbacks are generally used. All APIs of Node are written in a way to supports callbacks. For example: when a function start reading file, it returns the control to execution environment immediately so that the next instruction can be executed.
@@ -639,6 +683,9 @@ Node.js Punycode
         punycode.toASCII([domain]); turns non-ascii to ascii
 
         punycode.toUnicode([domain])
+
+    files: punycode_decode.js
+           punycode_encode.js
 
 Node.js TTY
     import

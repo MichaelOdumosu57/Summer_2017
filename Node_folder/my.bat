@@ -1,2 +1,1 @@
-dir -la
-
+clear
