@@ -18,6 +18,8 @@ Installing express.js
         npm install cookie-parser --save
         npm install multer --save
 
+    file:basic_express.js
+
 Express.js Request Object
     --parameters for callback
     --represent HTTP request and properties
@@ -73,7 +75,7 @@ Request Object Methods
     req.param('name')
 
 
-
+    file: request.js
 Express.js Response Object
     specfies http response sent by request app
     --once you res.send() or res.redirect() or res.render(), you cannot do it again, otherwise, there will be uncaught error.
@@ -103,6 +105,11 @@ Express.js Response Object
         
         res.clearCookie(name [, options])
             clears the cookie
+                to set
+                    res.cookie('name', 'Aryan', { path: '/admin' });
+
+                to clear
+                    res.clearCookie('name', { path: '/admin' });
 
         res.download([path,...]);
             makes file an attachment and makes browser ask if you would like to download
@@ -113,6 +120,8 @@ Express.js Response Object
             res.status(404).end();
 
             
+
+CONTAINS SENDING AGENT
         res.format(object)
             performs content negotiation on the Accept HTTP header on the request object, when present.
 
@@ -137,15 +146,18 @@ Express.js Response Object
             provides header for http response header
             res.get('Content-Type');
         
+SENDING AGENT
         res.json([body])
             returns response in json format
             res.json(null)
             res.json({ name: 'ajeet' })
 
+SENDING AGENT
         res.jsonp([body])
             retunrs in json with jsonp support
             res.jsonp(null)
             res.jsonp({ name: 'ajeet' })
+
 
         res.links(links)
             This method populates the response?s Link HTTP header field by joining the links provided as properties of the parameter.
@@ -159,7 +171,7 @@ Express.js Response Object
             This method is used to set the response location HTTP header field based on the specified path parameter.
             res.location('http://xyz.com');
 
-
+SENDING AGENT
         res.redirect([status,] path)
             This method redirects to the URL derived from the specified path, with specified HTTP status
             res.redirect('http://example.com');
@@ -198,6 +210,8 @@ Express.js Response Object
               'Content-Length': '123',
             })
 
+            --to be used with res.get
+
         res.status(code)
             This method sets an HTTP status for the response.z
             res.status(403).end();
@@ -212,6 +226,8 @@ Express.js Response Object
             res.type('png');                // => image/png:
 
 
+        file: response.js
+            --seems you must test one at a time
 Express.js GET Request
     get for small amounts of data
     post for large amounts of data that goes into the body
