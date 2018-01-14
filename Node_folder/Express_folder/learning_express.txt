@@ -228,6 +228,8 @@ SENDING AGENT
 
         file: response.js
             --seems you must test one at a time
+
+
 Express.js GET Request
     get for small amounts of data
     post for large amounts of data that goes into the body
@@ -235,21 +237,26 @@ Express.js GET Request
     --make sure that in the code you have correct port, hostname
         (127.0.0.1) and html file
         for the express app make sure you /[app] without the js extension to pro	perly refer to the app
+    --when receiving information, you have to use the name of the app without the extension
 
 	Express.js POST
         -- for big amounts of data to be sent in the body
 	    -- ask why is it not working
 
+        --it did not work because in your basic.html file you did not have a method attribute and you did not have "POST" need method = "POST" for post requests
 
+
+    folder: request
     
 Express.js Routing
     --all about how an app responds to a client
     cool things
-    file: routing/routing_example.js
+    file: routes/routing_example.js
     
     --when the page is opened the first thing that pops us is the first sent response to from the app
     --when you type in the given directories associated with the app commands, the app will do what is commanded
     -- if you do [string] * [string] any phrase that has the strings on both ends will return a response from the app
+    --do not know what to do about changing the methods for express apps
     
 
 Express.js Cookies Management
@@ -275,21 +282,25 @@ Express.js Cookies Management
 
 
         --I do not exactly know how to parse off uneeded code
-
+        
+        folder: cookies
 
 Express.js  File Upload
     
     --you need every in that jtp file upload in order to work
-    --for some reason express will not respond to post or delete and there are several more commads express will not work with, ask to find out what is going on
+    --when you get to app.post it needs a string in order to work so make sure the strings in the html form element for the attribute action and the 1st argument in the post method are correct, as well as method attribute = 'post' in the form element
+
+    folder jtp_file_upload
 
 
-left off Express.js Middleware
+ Express.js Middleware
     --for some reason express will not respond to post or delete and there are several more commads express will not work with, ask to find out what is going on
     --comes in middle of things
 
-    --middleware basically controls the requrest respone cycle
+    --middleware basically controls the requrest response cycle
 
     --in a simple express app connections are not recorded
+    -- with app.use you can finally record them
     
     to use
         
@@ -298,6 +309,7 @@ left off Express.js Middleware
           next();
         });
 
+    
 
 Express.js Scaffolding
     makes it easier for the app to specify how the data is used
@@ -351,6 +363,13 @@ Express Template Engines
         -- all .pug files must in views folder in the root folder
         --you can also set to another folder using views property in express. For example: app.set('views','MyViews')
         --view engine is a module that you need installed specifically for pug
+
+
+        steps
+            npm install pug --save
+            npm init
+            change to  app.set('views','MyViews'). in server.js file
+                default views
         
 
             var express = require('express');

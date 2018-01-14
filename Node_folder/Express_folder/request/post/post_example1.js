@@ -4,14 +4,15 @@ var bodyParser = require('body-parser');
 // Create application/x-www-form-urlencoded parser
 var urlencodedParser = bodyParser.urlencoded({ extended: false })
 app.use(express.static('public'));
-app.get('/post/basic.html', function (req, res) {
-   res.sendFile( __dirname + "/" + "basic.html" );
+app.get('/basic.html', function (req, res) {
+    
+  res.sendFile( __dirname.split("post")[0] + "basic.html");
 })
-app.post('/post/post_example1', urlencodedParser, function (req, res) {
+app.post('/post_example1', urlencodedParser, function (req, res) {
    // Prepare output in JSON format
    response = {
-       first_name:req.body.first_name,
-       last_name:req.body.last_name
+       firstname:req.body.firstname,
+       lastname:req.body.lastname
    };
    console.log(response);
    res.end(JSON.stringify(response));

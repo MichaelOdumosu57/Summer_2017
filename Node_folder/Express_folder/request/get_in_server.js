@@ -2,13 +2,13 @@ var express = require('express');
 var app = express();
 app.use(express.static('public'));
   
-app.get('/index.html', function (req, res) {
-   res.sendFile( __dirname + "/" + "index.html" );
+app.get('/basic.html', function (req, res) {
+   res.sendFile( __dirname + "/" + "basic.html" );
 })
 app.get('/get_in_server', function (req, res) {
 response = {
-       first_name:req.query.first_name,
-       last_name:req.query.last_name
+       firstname:req.query.first_name,
+       lastname:req.query.last_name
    };
    console.log(response);
    res.end(JSON.stringify(response));

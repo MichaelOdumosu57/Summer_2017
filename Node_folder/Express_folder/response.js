@@ -42,8 +42,8 @@ res_formats = res.format({
 //   console.log("res.location is " + res.location('http://xyz.com'))
 //   console.log("res.redirect is " + res.redirect('http://javatpoint.com'))
 //   console.log("res.render is " + res.render('index') )
-    //  console.log("res.set is " + res.set('Content-Type', 'text/html') )
-    //  console.log("res.get is " + res.get('Content-Type'))
+//      console.log("res.set is " + res.set('Content-Type', 'text/html') )
+//      console.log("res.get is " + res.get('Content-Type'))
     
 //   console.log("res.type is " )
 //   console.log(res.type('.html'))
