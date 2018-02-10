@@ -9,9 +9,10 @@ app.get('/dodo/',function(req,res) {
 }); 
 
 app.get('/render/',function(req,res) {
-	res.download('/index.html');
+	res.sendFile('/index.html');
+	res.send();
 }); 
-app.listen(8000, function () {  
-  console.log('Example app listening on port 8000!');   
+app.listen(7000, function () {  
+  console.log('Example app listening on port 7000!');   
 
 });  

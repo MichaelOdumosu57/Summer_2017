@@ -3,6 +3,9 @@ DS_Store
 *.out
 *.class
 child_process_example1.js
+
+Node_folder/Express_folder/node_modules/
+Node_folder/Express_folder/node_modules/*
 my.bat 
 =======
 *.tar.gz
